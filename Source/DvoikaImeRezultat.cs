@@ -1,113 +1,38 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-namespace GameFifteen
-{
+﻿namespace GameFifteen
+{   //Think of a normal name :D
     struct DvoikaImeRezultat
     {
         private string name;
         private int score;
-
+        //the parameterless constructor needs to be called by :this()
         public DvoikaImeRezultat(string name, int score)
+            : this()
         {
-            this.name = name;
-
-
-            this.score = score;
-        
+            this.Name = name;
+            this.Score = score;
         }
 
         public string Name
-        
         {
-        
             get
-            
             {
-            
-                return name;
+                return this.name;
             }
-
-            
             set
-            
             {
-            
-                name = value;
+                this.name = value;
             }
-
         }
-
-
-
-        
         public int Score
-        
-        
         {
-        
-            
-            
-            
-            
             get
             {
-            
-                return score;
+                return this.score;
             }
-
-            
             set
-            
             {
-            
-                score = value;
+                this.score = value;
             }
-
-
         }
-
     }
-
-
 }
-
-
-
-
