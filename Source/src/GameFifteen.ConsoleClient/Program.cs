@@ -1,66 +1,53 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-
-namespace GameFifteen
+﻿namespace GameFifteen
 {
-    class Program
+    using System;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Text.RegularExpressions;
+
+    public class Program
     {
         private const string EmptyCellValue = " ";
-      
+
         private const int MatrixSizeRows = 4;
-    
+
         private const int MatrixSizeColumns = 4;
-        
+
         private const int TopScoresAmount = 5;
-       
+
         private const string TopScoresFileName = "Top.txt";
-       
+
         private const string TopScoresPersonPattern = @"^\d+\. (.+) --> (\d+) moves?$";
 
-        
         private static readonly int[] DirectionRow = { -1, 0, 1, 0 };
-        
+
         private static readonly int[] DirectionColumn = { 0, 1, 0, -1 };
 
-        
         private static int emptyCellRow;
-        
+
         private static int emptyCellColumn;
-        
+
         private static string[,] matrix;
-        
-        private static Random random = new Random();
-        
+
+        private static readonly Random random = new Random();
+
         private static int turn;
 
-
-
         private static int CellNumberToDirection(int cellNumber)
-        
         {
             int direction = -1;
-
             for (int dir = 0; dir < DirectionRow.Length; dir++)
             {
-
                 bool isDirValid = proverka(dir);
 
                 if (isDirValid)
                 {
-
-                    
                     int nextCellRow = emptyCellRow + DirectionRow[dir];
-                    
-                    
                     int nextCellColumn = emptyCellColumn + DirectionColumn[dir];
-                    
-                    if (matrix[nextCellRow,nextCellColumn] == cellNumber.ToString())
-                    
+
+                    if (matrix[nextCellRow, nextCellColumn] == cellNumber.ToString())
                     {
-                    
                         direction = dir;
                         break;
                     }
@@ -73,7 +60,9 @@ namespace GameFifteen
         private static void TheEnd()
         {
             string moves = turn == 1 ? "1 move" : string.Format("{0} moves", turn);
+
             Console.WriteLine("Congratulations! You won the game in {0}.", moves);
+
             string[] topScores = GetTopScoresFromFile();
             if (topScores[TopScoresAmount - 1] != null)
             {
@@ -84,6 +73,7 @@ namespace GameFifteen
                     return;
                 }
             }
+
             UpgradeTopScore();
         }
 
@@ -91,8 +81,8 @@ namespace GameFifteen
         {
             try
             {
-                string[] topScores = new string[TopScoresAmount + 1];
-                StreamReader topReader = new StreamReader(TopScoresFileName);
+                var topScores = new string[TopScoresAmount + 1];
+                var topReader = new StreamReader(TopScoresFileName);
                 using (topReader)
                 {
                     int line = 0;
@@ -102,134 +92,105 @@ namespace GameFifteen
                         line++;
                     }
                 }
+
                 return topScores;
             }
             catch (FileNotFoundException)
             {
-                StreamWriter topWriter = 
-                    new StreamWriter(TopScoresFileName);
+                var topWriter = new StreamWriter(TopScoresFileName);
                 using (topWriter)
                 {
-                    topWriter.Write("");
+                    topWriter.Write(string.Empty);
                 }
+
                 return new string[TopScoresAmount];
             }
         }
 
         private static void InitializeMatrix()
         {
-            matrix = new string[MatrixSizeRows,MatrixSizeColumns];
+            matrix = new string[MatrixSizeRows, MatrixSizeColumns];
 
             int cellValue = 1;
-
             for (int row = 0; row < MatrixSizeRows; row++)
-            
             {
-            
                 for (int column = 0; column < MatrixSizeColumns; column++)
-                
                 {
-                
-                    matrix[row,column] = cellValue.ToString();
-
+                    matrix[row, column] = cellValue.ToString();
 
                     cellValue++;
-
                 }
-            
             }
-            
-            
-            
-            emptyCellRow = MatrixSizeRows - 1;
 
+            emptyCellRow = MatrixSizeRows - 1;
             emptyCellColumn = MatrixSizeColumns - 1;
 
-
-            matrix[emptyCellRow,emptyCellColumn] = EmptyCellValue;
+            matrix[emptyCellRow, emptyCellColumn] = EmptyCellValue;
         }
 
-        private static bool proverka(int direction)
- 
-        
+        private static bool IsNextCellValid(int direction)
+
         {
-        
+            // TODO: Can be extracted into method for getting next row/col
             int nextCellRow = emptyCellRow + DirectionRow[direction];
-            
-            bool isRowValid = (nextCellRow >= 0 && nextCellRow < MatrixSizeRows);
-            
             int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
-            
+
+            bool isRowValid = (nextCellRow >= 0 && nextCellRow < MatrixSizeRows);
             bool isColumnValid = (nextCellColumn >= 0 && nextCellColumn < MatrixSizeColumns);
-            
             bool isCellValid = isRowValid && isColumnValid;
-            
+
             return isCellValid;
         }
 
-
-
+        // TODO: See what this method does and rename it
         private static bool proverka2()
-
         {
-        
-            bool isEmptyCellInPlace = 
-        
-                emptyCellRow == MatrixSizeRows - 1 &&
-                
-                        emptyCellColumn == MatrixSizeColumns - 1;
+            // TODO: Can be extracted to method
+            bool isEmptyCellInPlace = emptyCellRow == MatrixSizeRows - 1 && emptyCellColumn == MatrixSizeColumns - 1;
             if (!isEmptyCellInPlace)
             {
-
-
                 return false;
-            
             }
 
             int cellValue = 1;
-            
-            int matrixSize = MatrixSizeRows * MatrixSizeColumns;
-            
-            for (int row = 0; row < MatrixSizeRows; row++)
-            
-            {
-            
-                for (int column = 0; column < MatrixSizeColumns && cellValue < matrixSize; column++)
-                
-                {
-                
-                    if (matrix[row,column] != cellValue.ToString())
-                    
-                    {
-                    
-                        
-                        
-                        return false;
-                    
-                    }
-                    
-                    
-                    
-                    cellValue++;
-                
-                }
 
+            // TODO: Can be extracted as const
+            int matrixSize = MatrixSizeRows * MatrixSizeColumns;
+
+            for (int row = 0; row < MatrixSizeRows; row++)
+            {
+                for (int column = 0; column < MatrixSizeColumns && cellValue < matrixSize; column++)
+                {
+                    if (matrix[row, column] != cellValue.ToString())
+                    {
+                        return false;
+                    }
+
+                    cellValue++;
+                }
             }
-            
+
             return true;
         }
+
         private static void MoveCell(int direction)
         {
+            // TODO: Can be extracted into method for getting next row/col like on line:135
             int nextCellRow = emptyCellRow + DirectionRow[direction];
             int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
-            matrix[emptyCellRow,emptyCellColumn] = matrix[nextCellRow,nextCellColumn];
-            matrix[nextCellRow,nextCellColumn] = EmptyCellValue;
+
+            matrix[emptyCellRow, emptyCellColumn] = matrix[nextCellRow, nextCellColumn];
+            matrix[nextCellRow, nextCellColumn] = EmptyCellValue;
+
             emptyCellRow = nextCellRow;
             emptyCellColumn = nextCellColumn;
+
             turn++;
         }
+
         private static void NextMove(int cellNumber)
         {
+            // TODO: Can be extracted as const like on line:158
             int matrixSize = MatrixSizeRows * MatrixSizeColumns;
             if (cellNumber <= 0 || cellNumber >= matrixSize)
             {
@@ -254,17 +215,19 @@ namespace GameFifteen
             {
                 InitializeMatrix();
                 ShuffleMatrix();
+
                 turn = 0;
                 PrintWelcomeMessage();
                 PrintMatrix();
+
                 while (true)
                 {
                     PrintNextMoveMessage();
+
                     string consoleInputLine = Console.ReadLine();
                     int cellNumber;
                     if (int.TryParse(consoleInputLine, out cellNumber))
                     {
-                        //Input is a cell number.
                         NextMove(cellNumber);
                         if (proverka2())
                         {
@@ -274,7 +237,6 @@ namespace GameFifteen
                     }
                     else
                     {
-                        //Input is a command.
                         if (consoleInputLine == "restart")
                         {
                             break;
@@ -284,9 +246,11 @@ namespace GameFifteen
                             case "top":
                                 PrintTopScores();
                                 break;
+
                             case "exit":
                                 PrintGoodbye();
                                 return;
+
                             default:
                                 PrintIllegalCommandMessage();
                                 break;
@@ -323,22 +287,27 @@ namespace GameFifteen
 
         private static void PrintMatrix()
         {
-            StringBuilder horizontalBorder = new StringBuilder("  ");
+            // TODO: Horizontal border is the same, extract it to different method and call it once
+            var horizontalBorder = new StringBuilder("  ");
             for (int i = 0; i < MatrixSizeColumns; i++)
             {
                 horizontalBorder.Append("---");
             }
+
             horizontalBorder.Append("- ");
             Console.WriteLine(horizontalBorder);
+
             for (int row = 0; row < MatrixSizeRows; row++)
             {
                 Console.Write(" |");
                 for (int column = 0; column < MatrixSizeColumns; column++)
                 {
-                    Console.Write("{0,3}", matrix[row,column]);
+                    Console.Write("{0,3}", matrix[row, column]);
                 }
+
                 Console.WriteLine(" |");
             }
+
             Console.WriteLine(horizontalBorder);
         }
 
@@ -366,7 +335,7 @@ namespace GameFifteen
         {
             Console.Write("Welcome to the game \"15\". ");
             Console.WriteLine("Please try to arrange the numbers sequentially. ");
-            Console.WriteLine("Use 'top' to view the top scoreboard, " + 
+            Console.WriteLine("Use 'top' to view the top scoreboard, " +
                               "'restart' to start a new game and 'exit'  to quit the game.");
         }
 
@@ -377,7 +346,7 @@ namespace GameFifteen
             for (int i = 0; i < shuffles; i++)
             {
                 int direction = random.Next(DirectionRow.Length);
-                if (proverka(direction))
+                if (IsNextCellValid(direction))
                 {
                     MoveCell(direction);
                 }
@@ -397,20 +366,19 @@ namespace GameFifteen
             {
                 name = "Anonymous";
             }
+
             topScores[TopScoresAmount] = string.Format("0. {0} --> {1} move", name, turn);
             Array.Sort(topScores);
 
-            DvoikaImeRezultat[] topScoresPairs = UpgradeTopScorePairs(topScores);
-
-            IOrderedEnumerable<DvoikaImeRezultat> sortedScores = 
-            topScoresPairs.OrderBy(x => x.Score).ThenBy(x => x.Name);
+            var topScoresPairs = UpgradeTopScorePairs(topScores);
+            var sortedScores = topScoresPairs.OrderBy(x => x.Score).ThenBy(x => x.Name);
 
             UpgradeTopScoreInFile(sortedScores);
         }
 
         private static void UpgradeTopScoreInFile(IOrderedEnumerable<DvoikaImeRezultat> sortedScores)
         {
-            StreamWriter topWriter = new StreamWriter(TopScoresFileName);
+            var topWriter = new StreamWriter(TopScoresFileName);
             using (topWriter)
             {
                 int position = 1;
@@ -418,12 +386,12 @@ namespace GameFifteen
                 {
                     string name = pair.Name;
                     int score = pair.Score;
-                    string toWrite = string.Format(
-                        "{0}. {1} --> {2} move", position, name, score);
+                    string toWrite = string.Format("{0}. {1} --> {2} move", position, name, score);
                     if (score > 1)
                     {
                         toWrite += "s";
                     }
+
                     topWriter.WriteLine(toWrite);
                     position++;
                 }
@@ -439,12 +407,14 @@ namespace GameFifteen
             }
 
             int arraySize = Math.Min(TopScoresAmount - startIndex + 1, TopScoresAmount);
-            DvoikaImeRezultat[] topScoresPairs = new DvoikaImeRezultat[arraySize];
+            var topScoresPairs = new DvoikaImeRezultat[arraySize];
             for (int topScoresPairsIndex = 0; topScoresPairsIndex < arraySize; topScoresPairsIndex++)
             {
                 int topScoresIndex = topScoresPairsIndex + startIndex;
+
                 string name = Regex.Replace(topScores[topScoresIndex], TopScoresPersonPattern, @"$1");
                 string score = Regex.Replace(topScores[topScoresIndex], TopScoresPersonPattern, @"$2");
+
                 int scoreInt = int.Parse(score);
                 topScoresPairs[topScoresPairsIndex] = new DvoikaImeRezultat(name, scoreInt);
             }
@@ -452,7 +422,7 @@ namespace GameFifteen
             return topScoresPairs;
         }
 
-        static void Main()
+        private static void Main()
         {
             PlayGame();
         }
