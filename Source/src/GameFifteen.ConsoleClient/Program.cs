@@ -39,7 +39,7 @@
             int direction = -1;
             for (int dir = 0; dir < DirectionRow.Length; dir++)
             {
-                bool isDirValid = proverka(dir);
+                bool isDirValid = IsNextCellValid(dir);
 
                 if (isDirValid)
                 {
@@ -376,13 +376,13 @@
             UpgradeTopScoreInFile(sortedScores);
         }
 
-        private static void UpgradeTopScoreInFile(IOrderedEnumerable<DvoikaImeRezultat> sortedScores)
+        private static void UpgradeTopScoreInFile(IOrderedEnumerable<NameScorePair> sortedScores)
         {
             var topWriter = new StreamWriter(TopScoresFileName);
             using (topWriter)
             {
                 int position = 1;
-                foreach (DvoikaImeRezultat pair in sortedScores)
+                foreach (NameScorePair pair in sortedScores)
                 {
                     string name = pair.Name;
                     int score = pair.Score;
@@ -398,7 +398,7 @@
             }
         }
 
-        private static DvoikaImeRezultat[] UpgradeTopScorePairs(string[] topScores)
+        private static NameScorePair[] UpgradeTopScorePairs(string[] topScores)
         {
             int startIndex = 0;
             while (topScores[startIndex] == null)
@@ -407,7 +407,7 @@
             }
 
             int arraySize = Math.Min(TopScoresAmount - startIndex + 1, TopScoresAmount);
-            var topScoresPairs = new DvoikaImeRezultat[arraySize];
+            var topScoresPairs = new NameScorePair[arraySize];
             for (int topScoresPairsIndex = 0; topScoresPairsIndex < arraySize; topScoresPairsIndex++)
             {
                 int topScoresIndex = topScoresPairsIndex + startIndex;
@@ -416,7 +416,7 @@
                 string score = Regex.Replace(topScores[topScoresIndex], TopScoresPersonPattern, @"$2");
 
                 int scoreInt = int.Parse(score);
-                topScoresPairs[topScoresPairsIndex] = new DvoikaImeRezultat(name, scoreInt);
+                topScoresPairs[topScoresPairsIndex] = new NameScorePair(name, scoreInt);
             }
 
             return topScoresPairs;
