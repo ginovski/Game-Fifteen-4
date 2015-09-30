@@ -142,8 +142,7 @@
             return isCellValid;
         }
 
-        // TODO: See what this method does and rename it
-        private static bool proverka2()
+        private static bool CheckIfNumbersAreSequential()
         {
             // TODO: Can be extracted to method
             bool isEmptyCellInPlace = emptyCellRow == MatrixSizeRows - 1 && emptyCellColumn == MatrixSizeColumns - 1;
@@ -229,7 +228,7 @@
                     if (int.TryParse(consoleInputLine, out cellNumber))
                     {
                         NextMove(cellNumber);
-                        if (proverka2())
+                        if (CheckIfNumbersAreSequential())
                         {
                             TheEnd();
                             break;
@@ -351,7 +350,7 @@
                     MoveCell(direction);
                 }
             }
-            if (proverka2())
+            if (CheckIfNumbersAreSequential())
             {
                 ShuffleMatrix();
             }
