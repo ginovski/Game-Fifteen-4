@@ -14,6 +14,8 @@
 
         private const int MatrixSizeColumns = 4;
 
+        private const int MatrixSize = 16;
+
         private const int TopScoresAmount = 5;
 
         private const string TopScoresFileName = "Top.txt";
@@ -30,7 +32,7 @@
 
         private static string[,] matrix;
 
-        private static readonly Random random = new Random();
+        private static readonly Random Random = new Random();
 
         private static int turn;
 
@@ -129,14 +131,13 @@
         }
 
         private static bool IsNextCellValid(int direction)
-
         {
             // TODO: Can be extracted into method for getting next row/col
             int nextCellRow = emptyCellRow + DirectionRow[direction];
             int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
 
-            bool isRowValid = (nextCellRow >= 0 && nextCellRow < MatrixSizeRows);
-            bool isColumnValid = (nextCellColumn >= 0 && nextCellColumn < MatrixSizeColumns);
+            bool isRowValid = nextCellRow >= 0 && nextCellRow < MatrixSizeRows;
+            bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < MatrixSizeColumns;
             bool isCellValid = isRowValid && isColumnValid;
 
             return isCellValid;
@@ -153,12 +154,9 @@
 
             int cellValue = 1;
 
-            // TODO: Can be extracted as const
-            int matrixSize = MatrixSizeRows * MatrixSizeColumns;
-
             for (int row = 0; row < MatrixSizeRows; row++)
             {
-                for (int column = 0; column < MatrixSizeColumns && cellValue < matrixSize; column++)
+                for (int column = 0; column < MatrixSizeColumns && cellValue < MatrixSize; column++)
                 {
                     if (matrix[row, column] != cellValue.ToString())
                     {
@@ -189,9 +187,7 @@
 
         private static void NextMove(int cellNumber)
         {
-            // TODO: Can be extracted as const like on line:158
-            int matrixSize = MatrixSizeRows * MatrixSizeColumns;
-            if (cellNumber <= 0 || cellNumber >= matrixSize)
+            if (cellNumber <= 0 || cellNumber >= MatrixSize)
             {
                 PrintCellDoesNotExistMessage();
                 return;
@@ -240,6 +236,7 @@
                         {
                             break;
                         }
+
                         switch (consoleInputLine)
                         {
                             case "top":
@@ -341,15 +338,16 @@
         private static void ShuffleMatrix()
         {
             int matrixSize = MatrixSizeRows * MatrixSizeColumns;
-            int shuffles = random.Next(matrixSize, matrixSize * 100);
+            int shuffles = Random.Next(matrixSize, matrixSize * 100);
             for (int i = 0; i < shuffles; i++)
             {
-                int direction = random.Next(DirectionRow.Length);
+                int direction = Random.Next(DirectionRow.Length);
                 if (IsNextCellValid(direction))
                 {
                     MoveCell(direction);
                 }
             }
+
             if (CheckIfNumbersAreSequential())
             {
                 ShuffleMatrix();
