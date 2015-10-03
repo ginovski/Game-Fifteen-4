@@ -26,13 +26,13 @@
 
         private static readonly int[] DirectionColumn = { 0, 1, 0, -1 };
 
+        private static readonly Random Random = new Random();
+
         private static int emptyCellRow;
 
         private static int emptyCellColumn;
 
         private static string[,] matrix;
-
-        private static readonly Random Random = new Random();
 
         private static int turn;
 
