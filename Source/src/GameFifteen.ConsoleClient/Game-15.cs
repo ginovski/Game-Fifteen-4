@@ -10,11 +10,11 @@
     {
         private const string EmptyCellValue = " ";
 
-        private const int MatrixSizeRows = 4;
+        private const int GameBoardRows = 4;
 
-        private const int MatrixSizeColumns = 4;
+        private const int GameBoardColumns = 4;
 
-        private const int MatrixSize = 16;
+        private const int GameBoardSize = 16;
 
         private const int TopScoresAmount = 5;
 
@@ -111,12 +111,12 @@
 
         private static void InitializeMatrix()
         {
-            matrix = new string[MatrixSizeRows, MatrixSizeColumns];
+            matrix = new string[GameBoardRows, GameBoardColumns];
 
             int cellValue = 1;
-            for (int row = 0; row < MatrixSizeRows; row++)
+            for (int row = 0; row < GameBoardRows; row++)
             {
-                for (int column = 0; column < MatrixSizeColumns; column++)
+                for (int column = 0; column < GameBoardColumns; column++)
                 {
                     matrix[row, column] = cellValue.ToString();
 
@@ -124,8 +124,8 @@
                 }
             }
 
-            emptyCellRow = MatrixSizeRows - 1;
-            emptyCellColumn = MatrixSizeColumns - 1;
+            emptyCellRow = GameBoardRows - 1;
+            emptyCellColumn = GameBoardColumns - 1;
 
             matrix[emptyCellRow, emptyCellColumn] = EmptyCellValue;
         }
@@ -136,8 +136,8 @@
             int nextCellRow = emptyCellRow + DirectionRow[direction];
             int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
 
-            bool isRowValid = nextCellRow >= 0 && nextCellRow < MatrixSizeRows;
-            bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < MatrixSizeColumns;
+            bool isRowValid = nextCellRow >= 0 && nextCellRow < GameBoardRows;
+            bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < GameBoardColumns;
             bool isCellValid = isRowValid && isColumnValid;
 
             return isCellValid;
@@ -146,7 +146,7 @@
         private static bool CheckIfNumbersAreSequential()
         {
             // TODO: Can be extracted to method
-            bool isEmptyCellInPlace = emptyCellRow == MatrixSizeRows - 1 && emptyCellColumn == MatrixSizeColumns - 1;
+            bool isEmptyCellInPlace = emptyCellRow == GameBoardRows - 1 && emptyCellColumn == GameBoardColumns - 1;
             if (!isEmptyCellInPlace)
             {
                 return false;
@@ -154,9 +154,9 @@
 
             int cellValue = 1;
 
-            for (int row = 0; row < MatrixSizeRows; row++)
+            for (int row = 0; row < GameBoardRows; row++)
             {
-                for (int column = 0; column < MatrixSizeColumns && cellValue < MatrixSize; column++)
+                for (int column = 0; column < GameBoardColumns && cellValue < GameBoardSize; column++)
                 {
                     if (matrix[row, column] != cellValue.ToString())
                     {
@@ -187,7 +187,7 @@
 
         private static void NextMove(int cellNumber)
         {
-            if (cellNumber <= 0 || cellNumber >= MatrixSize)
+            if (cellNumber <= 0 || cellNumber >= GameBoardSize)
             {
                 PrintCellDoesNotExistMessage();
                 return;
@@ -285,7 +285,7 @@
         {
             // TODO: Horizontal border is the same, extract it to different method and call it once
             var horizontalBorder = new StringBuilder("  ");
-            for (int i = 0; i < MatrixSizeColumns; i++)
+            for (int i = 0; i < GameBoardColumns; i++)
             {
                 horizontalBorder.Append("---");
             }
@@ -293,10 +293,10 @@
             horizontalBorder.Append("- ");
             Console.WriteLine(horizontalBorder);
 
-            for (int row = 0; row < MatrixSizeRows; row++)
+            for (int row = 0; row < GameBoardRows; row++)
             {
                 Console.Write(" |");
-                for (int column = 0; column < MatrixSizeColumns; column++)
+                for (int column = 0; column < GameBoardColumns; column++)
                 {
                     Console.Write("{0,3}", matrix[row, column]);
                 }
@@ -337,7 +337,7 @@
 
         private static void ShuffleMatrix()
         {
-            int matrixSize = MatrixSizeRows * MatrixSizeColumns;
+            int matrixSize = GameBoardRows * GameBoardColumns;
             int shuffles = Random.Next(matrixSize, matrixSize * 100);
             for (int i = 0; i < shuffles; i++)
             {
