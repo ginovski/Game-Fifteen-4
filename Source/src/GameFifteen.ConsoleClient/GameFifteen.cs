@@ -1,4 +1,4 @@
-﻿namespace GameFifteen
+﻿namespace Game15
 {
     using System;
     using System.IO;
@@ -336,9 +336,8 @@
         }
 
         private static void ShuffleMatrix()
-        {
-            int matrixSize = GameBoardRows * GameBoardColumns;
-            int shuffles = Random.Next(matrixSize, matrixSize * 100);
+        {            
+            int shuffles = Random.Next(GameBoardSize, GameBoardSize * 100);
             for (int i = 0; i < shuffles; i++)
             {
                 int direction = Random.Next(DirectionRow.Length);
@@ -368,23 +367,23 @@
             Array.Sort(topScores);
 
             var topScoresPairs = UpgradeTopScorePairs(topScores);
-            var sortedScores = topScoresPairs.OrderBy(x => x.Score).ThenBy(x => x.Name);
+            var sortedScores = topScoresPairs.OrderBy(x => x.MovesCount).ThenBy(x => x.Name);
 
             UpgradeTopScoreInFile(sortedScores);
         }
 
-        private static void UpgradeTopScoreInFile(IOrderedEnumerable<NameScorePair> sortedScores)
+        private static void UpgradeTopScoreInFile(IOrderedEnumerable<Player> sortedScores)
         {
             var topWriter = new StreamWriter(TopScoresFileName);
             using (topWriter)
             {
                 int position = 1;
-                foreach (NameScorePair pair in sortedScores)
+                foreach (Player pair in sortedScores)
                 {
                     string name = pair.Name;
-                    int score = pair.Score;
-                    string toWrite = string.Format("{0}. {1} --> {2} move", position, name, score);
-                    if (score > 1)
+                    int movesCount = pair.MovesCount;
+                    string toWrite = string.Format("{0}. {1} --> {2} move", position, name, movesCount);
+                    if (movesCount > 1)
                     {
                         toWrite += "s";
                     }
@@ -395,7 +394,7 @@
             }
         }
 
-        private static NameScorePair[] UpgradeTopScorePairs(string[] topScores)
+        private static Player[] UpgradeTopScorePairs(string[] topScores)
         {
             int startIndex = 0;
             while (topScores[startIndex] == null)
@@ -404,7 +403,7 @@
             }
 
             int arraySize = Math.Min(TopScoresAmount - startIndex + 1, TopScoresAmount);
-            var topScoresPairs = new NameScorePair[arraySize];
+            var topScoresPairs = new Player[arraySize];
             for (int topScoresPairsIndex = 0; topScoresPairsIndex < arraySize; topScoresPairsIndex++)
             {
                 int topScoresIndex = topScoresPairsIndex + startIndex;
@@ -413,7 +412,7 @@
                 string score = Regex.Replace(topScores[topScoresIndex], TopScoresPersonPattern, @"$2");
 
                 int scoreInt = int.Parse(score);
-                topScoresPairs[topScoresPairsIndex] = new NameScorePair(name, scoreInt);
+                topScoresPairs[topScoresPairsIndex] = new Player(name, scoreInt);
             }
 
             return topScoresPairs;
