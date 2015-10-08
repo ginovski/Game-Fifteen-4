@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DefaultCommand.cs" />
     <Compile Include="ExitCommand.cs" />
     <Compile Include="Player.cs" />

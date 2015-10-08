@@ -1,4 +1,4 @@
-﻿namespace Game15
+﻿namespace GameFifteen.ConsoleClient
 {
     using System;
     using System.IO;
@@ -8,19 +8,19 @@
 
     public class Program
     {
-        private const string EmptyCellValue = " ";
+       // private const string EmptyCellValue = " ";
 
-        private const int GameBoardRows = 4;
-
-        private const int GameBoardColumns = 4;
-
-        private const int GameBoardSize = 16;
-
-        private const int TopScoresAmount = 5;
-
-        private const string TopScoresFileName = "Top.txt";
-
-        private const string TopScoresPersonPattern = @"^\d+\. (.+) --> (\d+) moves?$";
+      //private const int GameBoardRows = 4;
+      //
+      //private const int GameBoardColumns = 4;
+      //
+      //private const int GameBoardSize = 16;
+      //
+      //private const int TopScoresAmount = 5;
+      //
+      //private const string TopScoresFileName = "Top.txt";
+      //
+      //private const string TopScoresPersonPattern = @"^\d+\. (.+) --> (\d+) moves?$";
 
         private static readonly int[] DirectionRow = { -1, 0, 1, 0 };
 
@@ -66,12 +66,12 @@
             Console.WriteLine("Congratulations! You won the game in {0}.", moves);
 
             string[] topScores = GetTopScoresFromFile();
-            if (topScores[TopScoresAmount - 1] != null)
+            if (topScores[Constants.TopScoresAmount - 1] != null)
             {
-                string lowestScore = Regex.Replace(topScores[TopScoresAmount - 1], TopScoresPersonPattern, @"$2");
+                string lowestScore = Regex.Replace(topScores[Constants.TopScoresAmount - 1], Constants.TopScoresPersonPattern, @"$2");
                 if (int.Parse(lowestScore) < turn)
                 {
-                    Console.WriteLine("You couldn't get in the top {0} scoreboard.", TopScoresAmount);
+                    Console.WriteLine("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount);
                     return;
                 }
             }
@@ -83,12 +83,12 @@
         {
             try
             {
-                var topScores = new string[TopScoresAmount + 1];
-                var topReader = new StreamReader(TopScoresFileName);
+                var topScores = new string[Constants.TopScoresAmount + 1];
+                var topReader = new StreamReader(Constants.TopScoresFileName);
                 using (topReader)
                 {
                     int line = 0;
-                    while (!topReader.EndOfStream && line < TopScoresAmount)
+                    while (!topReader.EndOfStream && line < Constants.TopScoresAmount)
                     {
                         topScores[line] = topReader.ReadLine();
                         line++;
@@ -99,24 +99,24 @@
             }
             catch (FileNotFoundException)
             {
-                var topWriter = new StreamWriter(TopScoresFileName);
+                var topWriter = new StreamWriter(Constants.TopScoresFileName);
                 using (topWriter)
                 {
                     topWriter.Write(string.Empty);
                 }
 
-                return new string[TopScoresAmount];
+                return new string[Constants.TopScoresAmount];
             }
         }
 
         private static void InitializeMatrix()
         {
-            matrix = new string[GameBoardRows, GameBoardColumns];
+            matrix = new string[Constants.GameBoardRows, Constants.GameBoardColumns];
 
             int cellValue = 1;
-            for (int row = 0; row < GameBoardRows; row++)
+            for (int row = 0; row < Constants.GameBoardRows; row++)
             {
-                for (int column = 0; column < GameBoardColumns; column++)
+                for (int column = 0; column < Constants.GameBoardColumns; column++)
                 {
                     matrix[row, column] = cellValue.ToString();
 
@@ -124,10 +124,10 @@
                 }
             }
 
-            emptyCellRow = GameBoardRows - 1;
-            emptyCellColumn = GameBoardColumns - 1;
+            emptyCellRow = Constants.GameBoardRows - 1;
+            emptyCellColumn = Constants.GameBoardColumns - 1;
 
-            matrix[emptyCellRow, emptyCellColumn] = EmptyCellValue;
+            matrix[emptyCellRow, emptyCellColumn] = Constants.EmptyCellValue;
         }
 
         private static bool IsNextCellValid(int direction)
@@ -136,8 +136,8 @@
             int nextCellRow = emptyCellRow + DirectionRow[direction];
             int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
 
-            bool isRowValid = nextCellRow >= 0 && nextCellRow < GameBoardRows;
-            bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < GameBoardColumns;
+            bool isRowValid = nextCellRow >= 0 && nextCellRow < Constants.GameBoardRows;
+            bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < Constants.GameBoardColumns;
             bool isCellValid = isRowValid && isColumnValid;
 
             return isCellValid;
@@ -146,7 +146,7 @@
         private static bool CheckIfNumbersAreSequential()
         {
             // TODO: Can be extracted to method
-            bool isEmptyCellInPlace = emptyCellRow == GameBoardRows - 1 && emptyCellColumn == GameBoardColumns - 1;
+            bool isEmptyCellInPlace = emptyCellRow == Constants.GameBoardRows - 1 && emptyCellColumn == Constants.GameBoardColumns - 1;
             if (!isEmptyCellInPlace)
             {
                 return false;
@@ -154,9 +154,9 @@
 
             int cellValue = 1;
 
-            for (int row = 0; row < GameBoardRows; row++)
+            for (int row = 0; row < Constants.GameBoardRows; row++)
             {
-                for (int column = 0; column < GameBoardColumns && cellValue < GameBoardSize; column++)
+                for (int column = 0; column < Constants.GameBoardColumns && cellValue < Constants.GameBoardSize; column++)
                 {
                     if (matrix[row, column] != cellValue.ToString())
                     {
@@ -177,7 +177,7 @@
             int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
 
             matrix[emptyCellRow, emptyCellColumn] = matrix[nextCellRow, nextCellColumn];
-            matrix[nextCellRow, nextCellColumn] = EmptyCellValue;
+            matrix[nextCellRow, nextCellColumn] = Constants.EmptyCellValue;
 
             emptyCellRow = nextCellRow;
             emptyCellColumn = nextCellColumn;
@@ -187,16 +187,16 @@
 
         private static void NextMove(int cellNumber)
         {
-            if (cellNumber <= 0 || cellNumber >= GameBoardSize)
+            if (cellNumber <= 0 || cellNumber >= Constants.GameBoardSize)
             {
-                PrintCellDoesNotExistMessage();
+                PrintMessage(Constants.CellDoesNotExist);
                 return;
             }
 
             int direction = CellNumberToDirection(cellNumber);
             if (direction == -1)
             {
-                PrintIllegalMoveMessage();
+                PrintMessage(Constants.IllegalMove);
                 return;
             }
 
@@ -217,7 +217,7 @@
 
                 while (true)
                 {
-                    PrintNextMoveMessage();
+                    Console.WriteLine(Constants.EnterNumberToMove);
 
                     string consoleInputLine = Console.ReadLine();
                     int cellNumber;
@@ -244,11 +244,11 @@
                                 break;
 
                             case "exit":
-                                PrintGoodbye();
+                                PrintMessage(Constants.Goodbye);
                                 return;
 
                             default:
-                                PrintIllegalCommandMessage();
+                                PrintMessage(Constants.IllegalCommand);
                                 break;
                         }
                     }
@@ -256,36 +256,16 @@
             }
         }
 
-        private static void PrintCellDoesNotExistMessage()
+        private static void PrintMessage(string message)
         {
-            Console.WriteLine("That cell does not exist in the matrix.");
-        }
-
-        private static void PrintGoodbye()
-        {
-            Console.WriteLine("Good bye!");
-        }
-
-        private static void PrintIllegalCommandMessage()
-        {
-            Console.WriteLine("Illegal command!");
-        }
-
-        private static void PrintIllegalMoveMessage()
-        {
-            Console.WriteLine("Illegal move!");
-        }
-
-        private static void PrintNextMoveMessage()
-        {
-            Console.Write("Enter a number to move: ");
+            Console.WriteLine(message);
         }
 
         private static void PrintMatrix()
         {
             // TODO: Horizontal border is the same, extract it to different method and call it once
             var horizontalBorder = new StringBuilder("  ");
-            for (int i = 0; i < GameBoardColumns; i++)
+            for (int i = 0; i < Constants.GameBoardColumns; i++)
             {
                 horizontalBorder.Append("---");
             }
@@ -293,10 +273,10 @@
             horizontalBorder.Append("- ");
             Console.WriteLine(horizontalBorder);
 
-            for (int row = 0; row < GameBoardRows; row++)
+            for (int row = 0; row < Constants.GameBoardRows; row++)
             {
                 Console.Write(" |");
-                for (int column = 0; column < GameBoardColumns; column++)
+                for (int column = 0; column < Constants.GameBoardColumns; column++)
                 {
                     Console.Write("{0,3}", matrix[row, column]);
                 }
@@ -336,8 +316,8 @@
         }
 
         private static void ShuffleMatrix()
-        {            
-            int shuffles = Random.Next(GameBoardSize, GameBoardSize * 100);
+        {
+            int shuffles = Random.Next(Constants.GameBoardSize, Constants.GameBoardSize * 100);
             for (int i = 0; i < shuffles; i++)
             {
                 int direction = Random.Next(DirectionRow.Length);
@@ -363,7 +343,7 @@
                 name = "Anonymous";
             }
 
-            topScores[TopScoresAmount] = string.Format("0. {0} --> {1} move", name, turn);
+            topScores[Constants.TopScoresAmount] = string.Format("0. {0} --> {1} move", name, turn);
             Array.Sort(topScores);
 
             var topScoresPairs = UpgradeTopScorePairs(topScores);
@@ -374,7 +354,7 @@
 
         private static void UpgradeTopScoreInFile(IOrderedEnumerable<Player> sortedScores)
         {
-            var topWriter = new StreamWriter(TopScoresFileName);
+            var topWriter = new StreamWriter(Constants.TopScoresFileName);
             using (topWriter)
             {
                 int position = 1;
@@ -402,14 +382,14 @@
                 startIndex++;
             }
 
-            int arraySize = Math.Min(TopScoresAmount - startIndex + 1, TopScoresAmount);
+            int arraySize = Math.Min(Constants.TopScoresAmount - startIndex + 1, Constants.TopScoresAmount);
             var topScoresPairs = new Player[arraySize];
             for (int topScoresPairsIndex = 0; topScoresPairsIndex < arraySize; topScoresPairsIndex++)
             {
                 int topScoresIndex = topScoresPairsIndex + startIndex;
 
-                string name = Regex.Replace(topScores[topScoresIndex], TopScoresPersonPattern, @"$1");
-                string score = Regex.Replace(topScores[topScoresIndex], TopScoresPersonPattern, @"$2");
+                string name = Regex.Replace(topScores[topScoresIndex], Constants.TopScoresPersonPattern, @"$1");
+                string score = Regex.Replace(topScores[topScoresIndex], Constants.TopScoresPersonPattern, @"$2");
 
                 int scoreInt = int.Parse(score);
                 topScoresPairs[topScoresPairsIndex] = new Player(name, scoreInt);

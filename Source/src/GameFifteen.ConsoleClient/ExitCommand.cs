@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace GameFifteen.ConsoleClient
 {
-    class ExitCommand
+    class ExitCommand : Command
     {
 
+        public override void Execute()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,5 +1,7 @@
-﻿namespace Game15
+﻿namespace GameFifteen.ConsoleClient
 {
+    using System;
+
     /// <summary>
     /// Class containing the info of the Player
     /// </summary>
@@ -38,6 +40,11 @@
 
             set
             {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentNullException(Constants.InvalidPlayerName);
+                }
+
                 this.name = value;
             }
         }
