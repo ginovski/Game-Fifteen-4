@@ -8,19 +8,6 @@
 
     public class Program
     {
-       // private const string EmptyCellValue = " ";
-
-      //private const int GameBoardRows = 4;
-      //
-      //private const int GameBoardColumns = 4;
-      //
-      //private const int GameBoardSize = 16;
-      //
-      //private const int TopScoresAmount = 5;
-      //
-      //private const string TopScoresFileName = "Top.txt";
-      //
-      //private const string TopScoresPersonPattern = @"^\d+\. (.+) --> (\d+) moves?$";
 
         private static readonly int[] DirectionRow = { -1, 0, 1, 0 };
 
