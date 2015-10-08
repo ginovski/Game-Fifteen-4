@@ -8,7 +8,6 @@ namespace GameFifteen.ConsoleClient
 {
     class ExitCommand : Command
     {
-
         public override void Execute()
         {
             throw new NotImplementedException();

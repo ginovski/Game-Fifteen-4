@@ -8,7 +8,6 @@
 
     public class Program
     {
-
         private static readonly int[] DirectionRow = { -1, 0, 1, 0 };
 
         private static readonly int[] DirectionColumn = { 0, 1, 0, -1 };
@@ -22,6 +21,58 @@
         private static string[,] matrix;
 
         private static int turn;
+
+        public static void PlayGame()
+        {
+            while (true)
+            {
+                InitializeMatrix();
+                ShuffleMatrix();
+
+                turn = 0;
+                PrintWelcomeMessage();
+                PrintMatrix();
+
+                while (true)
+                {
+                    PrintMessage(Constants.EnterNumberToMove);
+
+                    string consoleInputLine = Console.ReadLine();
+                    int cellNumber;
+                    if (int.TryParse(consoleInputLine, out cellNumber))
+                    {
+                        NextMove(cellNumber);
+                        if (CheckIfNumbersAreSequential())
+                        {
+                            TheEnd();
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (consoleInputLine == "restart")
+                        {
+                            break;
+                        }
+
+                        switch (consoleInputLine)
+                        {
+                            case "top":
+                                PrintTopScores();
+                                break;
+
+                            case "exit":
+                                PrintMessage(Constants.Goodbye);
+                                return;
+
+                            default:
+                                PrintMessage(Constants.IllegalCommand);
+                                break;
+                        }
+                    }
+                }
+            }
+        }
 
         private static int CellNumberToDirection(int cellNumber)
         {
@@ -50,7 +101,7 @@
         {
             string moves = turn == 1 ? "1 move" : string.Format("{0} moves", turn);
 
-            Console.WriteLine("Congratulations! You won the game in {0}.", moves);
+            PrintMessage(String.Format("Congratulations! You won the game in {0}.", moves));
 
             string[] topScores = GetTopScoresFromFile();
             if (topScores[Constants.TopScoresAmount - 1] != null)
@@ -58,7 +109,7 @@
                 string lowestScore = Regex.Replace(topScores[Constants.TopScoresAmount - 1], Constants.TopScoresPersonPattern, @"$2");
                 if (int.Parse(lowestScore) < turn)
                 {
-                    Console.WriteLine("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount);
+                    PrintMessage(string.Format("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount));
                     return;
                 }
             }
@@ -191,58 +242,6 @@
             PrintMatrix();
         }
 
-        public static void PlayGame()
-        {
-            while (true)
-            {
-                InitializeMatrix();
-                ShuffleMatrix();
-
-                turn = 0;
-                PrintWelcomeMessage();
-                PrintMatrix();
-
-                while (true)
-                {
-                    Console.WriteLine(Constants.EnterNumberToMove);
-
-                    string consoleInputLine = Console.ReadLine();
-                    int cellNumber;
-                    if (int.TryParse(consoleInputLine, out cellNumber))
-                    {
-                        NextMove(cellNumber);
-                        if (CheckIfNumbersAreSequential())
-                        {
-                            TheEnd();
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        if (consoleInputLine == "restart")
-                        {
-                            break;
-                        }
-
-                        switch (consoleInputLine)
-                        {
-                            case "top":
-                                PrintTopScores();
-                                break;
-
-                            case "exit":
-                                PrintMessage(Constants.Goodbye);
-                                return;
-
-                            default:
-                                PrintMessage(Constants.IllegalCommand);
-                                break;
-                        }
-                    }
-                }
-            }
-        }
-
         private static void PrintMessage(string message)
         {
             Console.WriteLine(message);
@@ -258,7 +257,7 @@
             }
 
             horizontalBorder.Append("- ");
-            Console.WriteLine(horizontalBorder);
+            PrintMessage(horizontalBorder.ToString());
 
             for (int row = 0; row < Constants.GameBoardRows; row++)
             {
@@ -271,16 +270,16 @@
                 Console.WriteLine(" |");
             }
 
-            Console.WriteLine(horizontalBorder);
+            PrintMessage(horizontalBorder.ToString());
         }
 
         private static void PrintTopScores()
         {
-            Console.WriteLine("Scoreboard:");
+            PrintMessage("Scoreboard:");
             string[] topScores = GetTopScoresFromFile();
             if (topScores[0] == null)
             {
-                Console.WriteLine("There are no scores to display yet.");
+                PrintMessage("There are no scores to display yet.");
             }
             else
             {
@@ -288,7 +287,7 @@
                 {
                     if (score != null)
                     {
-                        Console.WriteLine(score);
+                        PrintMessage(score);
                     }
                 }
             }
@@ -296,9 +295,8 @@
 
         private static void PrintWelcomeMessage()
         {
-            Console.Write("Welcome to the game \"15\". ");
-            Console.WriteLine("Please try to arrange the numbers sequentially. ");
-            Console.WriteLine("Use 'top' to view the top scoreboard, " +
+            PrintMessage("Welcome to the game \"15\". Please try to arrange the numbers sequentially. ");
+            PrintMessage("Use 'top' to view the top scoreboard, " +
                               "'restart' to start a new game and 'exit'  to quit the game.");
         }
 
