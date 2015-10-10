@@ -47,7 +47,7 @@ Refactoring Documentation for Project “GameFifteen”
                 
                 return new string[TopScoresAmount];
                 
-	-   Inserted empty lines between the methods.
+     - Inserted empty lines between the methods.
      - Placed all using directives inside of their namespaces.
      - Removed unnecessary parenthesis.
         
