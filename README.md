@@ -9,7 +9,7 @@ Refactoring Documentation for Project “GameFifteen”
 	- ...
 2.  Reformatted the source code using StyleCop:
 
-	-   Removed all unneeded empty lines. For example:
+	-   Removed all unneeded empty lines and added proper spacing. For example:
 	
 	Before:
 	
@@ -28,7 +28,37 @@ Refactoring Documentation for Project “GameFifteen”
                         direction = dir;
                         break;
                     }
+    - Inserted empty lines after statements and elements wrapped in curly brackets and used **string.Empty** rather than "".
+    
+    	Before:
+	
+		     using (topWriter)
+                {
+                    topWriter.Write("");
+                }
+                return new string[TopScoresAmount];
+                    
+         After:
+         
+              using (topWriter)
+                {
+                    topWriter.Write("");
+                }
+                
+                return new string[TopScoresAmount];
+                
 	-   Inserted empty lines between the methods.
+     - Placed all using directives inside of their namespaces.
+     - Removed unnecessary parenthesis.
+        
+    	Before:
+	
+		      bool isRowValid = (nextCellRow >= 0 && nextCellRow < MatrixSizeRows);
+         After:
+         
+               bool isRowValid = nextCellRow >= 0 && nextCellRow < MatrixSizeRows;
+                
+     - Added access modifiers for all the classes.
 	-   Formatted the curly braces **{** and **}** according to the best practices for the C\# language.
 	-   Put **{** and **}** after all conditionals and loops (when missing).
 	-   Character casing: variables and fields made **camelCase**
