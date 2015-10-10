@@ -47,10 +47,10 @@ Refactoring Documentation for Project “GameFifteen”
                 
                 return new string[TopScoresAmount];
                 
-     - Inserted empty lines between the methods.
-     - Placed all using directives inside of their namespaces.
-     - Removed unnecessary parenthesis.
-        
+	- Inserted empty lines between the methods.
+    - Placed all using directives inside of their namespaces.
+    - Removed unnecessary parenthesis.
+       
     	Before:
 	
 		      bool isRowValid = (nextCellRow >= 0 && nextCellRow < MatrixSizeRows);
@@ -58,7 +58,7 @@ Refactoring Documentation for Project “GameFifteen”
          
                bool isRowValid = nextCellRow >= 0 && nextCellRow < MatrixSizeRows;
                 
-     - Added access modifiers for all the classes.
+    -  Added access modifiers for all the classes.
 	-   Formatted the curly braces **{** and **}** according to the best practices for the C\# language.
 	-   Put **{** and **}** after all conditionals and loops (when missing).
 	-   Character casing: variables and fields made **camelCase**
