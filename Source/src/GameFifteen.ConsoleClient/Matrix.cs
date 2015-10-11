@@ -26,7 +26,7 @@
             {
                 for (int column = 0; column < Constants.GameBoardColumns; column++)
                 {
-                    matrix[row, column] = cellValue.ToString();
+                    this.matrix[row, column] = cellValue.ToString();
 
                     cellValue++;
                 }
@@ -82,6 +82,8 @@
 
             return true;
         }
+
+       
         private bool IsNextCellValid(int direction)
         {
             var directions = GetDirections(direction);
@@ -100,19 +102,19 @@
             int nextCellRow = directions[0];
             int nextCellColumn = directions[1];
 
-            this.matrix[emptyCellRow, emptyCellColumn] = this.matrix[nextCellRow, nextCellColumn];
+            this.matrix[this.emptyCellRow, this.emptyCellColumn] = this.matrix[nextCellRow, nextCellColumn];
             this.matrix[nextCellRow, nextCellColumn] = Constants.EmptyCellValue;
 
-            emptyCellRow = nextCellRow;
-            emptyCellColumn = nextCellColumn;
+            this.emptyCellRow = nextCellRow;
+            this.emptyCellColumn = nextCellColumn;
 
             turn++;
         }
 
         private int[] GetDirections(int direction)
         {
-            int nextCellRow = emptyCellRow + DirectionRow[direction];
-            int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
+            int nextCellRow = this.emptyCellRow + DirectionRow[direction];
+            int nextCellColumn = this.emptyCellColumn + DirectionColumn[direction];
             return new int[] { nextCellRow, nextCellColumn };
         }
     }
