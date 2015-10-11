@@ -90,9 +90,8 @@
 
             bool isRowValid = nextCellRow >= 0 && nextCellRow < Constants.GameBoardRows;
             bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < Constants.GameBoardColumns;
-            bool isCellValid = isRowValid && isColumnValid;
 
-            return isCellValid;
+            return isRowValid && isColumnValid;
         }
 
         private void MoveCell(int direction)
