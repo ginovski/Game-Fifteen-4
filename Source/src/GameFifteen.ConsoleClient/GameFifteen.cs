@@ -72,6 +72,7 @@
                     }
                 }
             }
+
         }
 
         private static int CellNumberToDirection(int cellNumber)
@@ -97,54 +98,23 @@
             return direction;
         }
 
-        private static void TheEnd()
+        private static void NextMove(int cellNumber)
         {
-            string moves = turn == 1 ? "1 move" : string.Format("{0} moves", turn);
-
-            PrintMessage(string.Format("Congratulations! You won the game in {0}.", moves));
-
-            string[] topScores = GetTopScoresFromFile();
-            if (topScores[Constants.TopScoresAmount - 1] != null)
+            if (cellNumber <= 0 || cellNumber >= Constants.GameBoardSize)
             {
-                string lowestScore = Regex.Replace(topScores[Constants.TopScoresAmount - 1], Constants.TopScoresPersonPattern, @"$2");
-                if (int.Parse(lowestScore) < turn)
-                {
-                    PrintMessage(string.Format("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount));
-                    return;
-                }
+                PrintMessage(Constants.CellDoesNotExist);
+                return;
             }
 
-            UpgradeTopScore();
-        }
-
-        private static string[] GetTopScoresFromFile()
-        {
-            try
+            int direction = CellNumberToDirection(cellNumber);
+            if (direction == -1)
             {
-                var topScores = new string[Constants.TopScoresAmount + 1];
-                var topReader = new StreamReader(Constants.TopScoresFileName);
-                using (topReader)
-                {
-                    int line = 0;
-                    while (!topReader.EndOfStream && line < Constants.TopScoresAmount)
-                    {
-                        topScores[line] = topReader.ReadLine();
-                        line++;
-                    }
-                }
-
-                return topScores;
+                PrintMessage(Constants.IllegalMove);
+                return;
             }
-            catch (FileNotFoundException)
-            {
-                var topWriter = new StreamWriter(Constants.TopScoresFileName);
-                using (topWriter)
-                {
-                    topWriter.Write(string.Empty);
-                }
 
-                return new string[Constants.TopScoresAmount];
-            }
+            MoveCell(direction);
+            PrintMatrix();
         }
 
         private static void InitializeMatrix()
@@ -223,23 +193,22 @@
             turn++;
         }
 
-        private static void NextMove(int cellNumber)
+        private static void ShuffleMatrix()
         {
-            if (cellNumber <= 0 || cellNumber >= Constants.GameBoardSize)
+            int shuffles = Random.Next(Constants.GameBoardSize, Constants.GameBoardSize * 100);
+            for (int i = 0; i < shuffles; i++)
             {
-                PrintMessage(Constants.CellDoesNotExist);
-                return;
+                int direction = Random.Next(DirectionRow.Length);
+                if (IsNextCellValid(direction))
+                {
+                    MoveCell(direction);
+                }
             }
 
-            int direction = CellNumberToDirection(cellNumber);
-            if (direction == -1)
+            if (AreNumbersSequential())
             {
-                PrintMessage(Constants.IllegalMove);
-                return;
+                ShuffleMatrix();
             }
-
-            MoveCell(direction);
-            PrintMatrix();
         }
 
         private static void PrintMessage(string message)
@@ -272,6 +241,27 @@
 
             PrintMessage(horizontalBorder.ToString());
         }
+        private static void Print2() { 
+}
+        private static void TheEnd()
+        {
+            string moves = turn == 1 ? "1 move" : string.Format("{0} moves", turn);
+
+            PrintMessage(string.Format("Congratulations! You won the game in {0}.", moves));
+
+            string[] topScores = GetTopScoresFromFile();
+            if (topScores[Constants.TopScoresAmount - 1] != null)
+            {
+                string lowestScore = Regex.Replace(topScores[Constants.TopScoresAmount - 1], Constants.TopScoresPersonPattern, @"$2");
+                if (int.Parse(lowestScore) < turn)
+                {
+                    PrintMessage(string.Format("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount));
+                    return;
+                }
+            }
+
+            UpgradeTopScore();
+        }
 
         private static void PrintTopScores()
         {
@@ -300,21 +290,33 @@
                               "'restart' to start a new game and 'exit'  to quit the game.");
         }
 
-        private static void ShuffleMatrix()
+        private static string[] GetTopScoresFromFile()
         {
-            int shuffles = Random.Next(Constants.GameBoardSize, Constants.GameBoardSize * 100);
-            for (int i = 0; i < shuffles; i++)
+            try
             {
-                int direction = Random.Next(DirectionRow.Length);
-                if (IsNextCellValid(direction))
+                var topScores = new string[Constants.TopScoresAmount + 1];
+                var topReader = new StreamReader(Constants.TopScoresFileName);
+                using (topReader)
                 {
-                    MoveCell(direction);
+                    int line = 0;
+                    while (!topReader.EndOfStream && line < Constants.TopScoresAmount)
+                    {
+                        topScores[line] = topReader.ReadLine();
+                        line++;
+                    }
                 }
-            }
 
-            if (AreNumbersSequential())
+                return topScores;
+            }
+            catch (FileNotFoundException)
             {
-                ShuffleMatrix();
+                var topWriter = new StreamWriter(Constants.TopScoresFileName);
+                using (topWriter)
+                {
+                    topWriter.Write(string.Empty);
+                }
+
+                return new string[Constants.TopScoresAmount];
             }
         }
 
