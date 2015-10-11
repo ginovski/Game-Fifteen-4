@@ -1,8 +1,9 @@
 ﻿namespace GameFifteen.ConsoleClient
 {
     using System;
+    using System.Text;
 
-    public class Matrix
+    public class Matrix : IPrintable
     {
         private readonly int[] DirectionRow = { -1, 0, 1, 0 };
         private readonly int[] DirectionColumn = { 0, 1, 0, -1 };
@@ -16,6 +17,7 @@
         public Matrix()
         {
             InitializeMatrix();
+            this.turn = 0;
         }
         private void InitializeMatrix()
         {
@@ -43,7 +45,8 @@
             int shuffles = random.Next(Constants.GameBoardSize, Constants.GameBoardSize * 100);
             for (int i = 0; i < shuffles; i++)
             {
-                int direction = random.Next(DirectionRow.Length);
+                var directionLength = this.DirectionRow.Length;
+                int direction = random.Next(directionLength);
                 if (IsNextCellValid(direction))
                 {
                     MoveCell(direction);
@@ -116,6 +119,30 @@
             int nextCellRow = this.emptyCellRow + DirectionRow[direction];
             int nextCellColumn = this.emptyCellColumn + DirectionColumn[direction];
             return new int[] { nextCellRow, nextCellColumn };
+        }
+
+        public string ToPrintable()
+        {
+            StringBuilder matrixBuilder = new StringBuilder();
+            var horizontalBorder = new StringBuilder("  ");
+            for (int i = 0; i < Constants.GameBoardColumns; i++)
+            {
+                horizontalBorder.Append("---");
+            }
+            horizontalBorder.Append("- \n");
+            matrixBuilder.Append(horizontalBorder);
+            for (int row = 0; row < Constants.GameBoardRows; row++)
+            {
+                matrixBuilder.Append(" |");
+                for (int column = 0; column < Constants.GameBoardColumns; column++)
+                {
+                    matrixBuilder.Append(String.Format("{0,3}", this.matrix[row, column]));
+                }
+
+                matrixBuilder.Append(" |");
+            }
+            matrixBuilder.Append(horizontalBorder);
+            return matrixBuilder.ToString();
         }
     }
 }
