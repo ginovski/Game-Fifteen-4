@@ -42,7 +42,7 @@
                     if (int.TryParse(consoleInputLine, out cellNumber))
                     {
                         NextMove(cellNumber);
-                        if (CheckIfNumbersAreSequential())
+                        if (AreNumbersSequential())
                         {
                             TheEnd();
                             break;
@@ -101,7 +101,7 @@
         {
             string moves = turn == 1 ? "1 move" : string.Format("{0} moves", turn);
 
-            PrintMessage(String.Format("Congratulations! You won the game in {0}.", moves));
+            PrintMessage(string.Format("Congratulations! You won the game in {0}.", moves));
 
             string[] topScores = GetTopScoresFromFile();
             if (topScores[Constants.TopScoresAmount - 1] != null)
@@ -181,7 +181,7 @@
             return isCellValid;
         }
 
-        private static bool CheckIfNumbersAreSequential()
+        private static bool AreNumbersSequential()
         {
             // TODO: Can be extracted to method
             bool isEmptyCellInPlace = emptyCellRow == Constants.GameBoardRows - 1 && emptyCellColumn == Constants.GameBoardColumns - 1;
@@ -312,7 +312,7 @@
                 }
             }
 
-            if (CheckIfNumbersAreSequential())
+            if (AreNumbersSequential())
             {
                 ShuffleMatrix();
             }

@@ -67,6 +67,9 @@ Refactoring Documentation for Project “GameFifteen”
 	-   …
 3.  Renamed variables:
 	-   ...
+4. Renamed methods:
+    -   proverka() to IsNextCellValid()
+    -   proverka2() to AreNumbersSequential()
 4.  Introduced constants:
 	-   `GameBoardSize = 16`
 5. Renamed Class DvoikaImeRezultat to Player.
