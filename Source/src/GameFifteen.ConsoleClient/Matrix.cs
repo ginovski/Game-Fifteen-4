@@ -74,7 +74,7 @@
             {
                 for (int column = 0; column < Constants.GameBoardColumns && cellValue < Constants.GameBoardSize; column++)
                 {
-                    if (matrix[row, column] != cellValue.ToString())
+                    if (this.matrix[row, column] != cellValue.ToString())
                     {
                         return false;
                     }
@@ -139,7 +139,7 @@
                     matrixBuilder.Append(String.Format("{0,3}", this.matrix[row, column]));
                 }
 
-                matrixBuilder.Append(" |");
+                matrixBuilder.Append(" |\n");
             }
             matrixBuilder.Append(horizontalBorder);
             return matrixBuilder.ToString();

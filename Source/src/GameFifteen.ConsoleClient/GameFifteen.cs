@@ -24,55 +24,51 @@
 
         public static void PlayGame()
         {
+            InitializeMatrix();
+            ShuffleMatrix();
+
+            turn = 0;
+            PrintWelcomeMessage();
+            PrintMatrix();
+
             while (true)
             {
-                InitializeMatrix();
-                ShuffleMatrix();
+                PrintMessage(Constants.EnterNumberToMove);
 
-                turn = 0;
-                PrintWelcomeMessage();
-                PrintMatrix();
-
-                while (true)
+                string consoleInputLine = Console.ReadLine();
+                int cellNumber;
+                if (int.TryParse(consoleInputLine, out cellNumber))
                 {
-                    PrintMessage(Constants.EnterNumberToMove);
-
-                    string consoleInputLine = Console.ReadLine();
-                    int cellNumber;
-                    if (int.TryParse(consoleInputLine, out cellNumber))
+                    NextMove(cellNumber);
+                    if (AreNumbersSequential())
                     {
-                        NextMove(cellNumber);
-                        if (AreNumbersSequential())
-                        {
-                            TheEnd();
-                            break;
-                        }
+                        TheEnd();
+                        break;
                     }
-                    else
+                }
+                else
+                {
+                    if (consoleInputLine == "restart")
                     {
-                        if (consoleInputLine == "restart")
-                        {
+                        break;
+                    }
+
+                    switch (consoleInputLine)
+                    {
+                        case "top":
+                            PrintTopScores();
                             break;
-                        }
 
-                        switch (consoleInputLine)
-                        {
-                            case "top":
-                                PrintTopScores();
-                                break;
+                        case "exit":
+                            PrintMessage(Constants.Goodbye);
+                            return;
 
-                            case "exit":
-                                PrintMessage(Constants.Goodbye);
-                                return;
-
-                            default:
-                                PrintMessage(Constants.IllegalCommand);
-                                break;
-                        }
+                        default:
+                            PrintMessage(Constants.IllegalCommand);
+                            break;
                     }
                 }
             }
-
         }
 
         private static int CellNumberToDirection(int cellNumber)
@@ -241,8 +237,7 @@
 
             PrintMessage(horizontalBorder.ToString());
         }
-        private static void Print2() { 
-}
+
         private static void TheEnd()
         {
             string moves = turn == 1 ? "1 move" : string.Format("{0} moves", turn);
