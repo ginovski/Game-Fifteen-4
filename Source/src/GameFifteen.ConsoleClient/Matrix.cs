@@ -85,8 +85,9 @@
         private bool IsNextCellValid(int direction)
         {
             // TODO: Can be extracted into method for getting next row/col
-            int nextCellRow = this.emptyCellRow + DirectionRow[direction];
-            int nextCellColumn = this.emptyCellColumn + DirectionColumn[direction];
+            var directions = GetDirections(direction);
+            int nextCellRow = directions[0];
+            int nextCellColumn = directions[1];
 
             bool isRowValid = nextCellRow >= 0 && nextCellRow < Constants.GameBoardRows;
             bool isColumnValid = nextCellColumn >= 0 && nextCellColumn < Constants.GameBoardColumns;
@@ -97,8 +98,9 @@
         private void MoveCell(int direction)
         {
             // TODO: Can be extracted into method for getting next row/col like on line:135
-            int nextCellRow = emptyCellRow + DirectionRow[direction];
-            int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
+            var directions = GetDirections(direction);
+            int nextCellRow = directions[0];
+            int nextCellColumn = directions[1];
 
             matrix[emptyCellRow, emptyCellColumn] = matrix[nextCellRow, nextCellColumn];
             matrix[nextCellRow, nextCellColumn] = Constants.EmptyCellValue;
@@ -107,6 +109,13 @@
             emptyCellColumn = nextCellColumn;
 
             turn++;
+        }
+
+        private int[] GetDirections(int direction)
+        {
+            int nextCellRow = emptyCellRow + DirectionRow[direction];
+            int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
+            return new int[] { nextCellRow, nextCellColumn };
         }
     }
 }
