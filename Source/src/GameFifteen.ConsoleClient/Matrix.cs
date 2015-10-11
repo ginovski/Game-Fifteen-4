@@ -84,7 +84,6 @@
         }
         private bool IsNextCellValid(int direction)
         {
-            // TODO: Can be extracted into method for getting next row/col
             var directions = GetDirections(direction);
             int nextCellRow = directions[0];
             int nextCellColumn = directions[1];
@@ -97,13 +96,12 @@
 
         private void MoveCell(int direction)
         {
-            // TODO: Can be extracted into method for getting next row/col like on line:135
             var directions = GetDirections(direction);
             int nextCellRow = directions[0];
             int nextCellColumn = directions[1];
 
-            matrix[emptyCellRow, emptyCellColumn] = matrix[nextCellRow, nextCellColumn];
-            matrix[nextCellRow, nextCellColumn] = Constants.EmptyCellValue;
+            this.matrix[emptyCellRow, emptyCellColumn] = this.matrix[nextCellRow, nextCellColumn];
+            this.matrix[nextCellRow, nextCellColumn] = Constants.EmptyCellValue;
 
             emptyCellRow = nextCellRow;
             emptyCellColumn = nextCellColumn;
