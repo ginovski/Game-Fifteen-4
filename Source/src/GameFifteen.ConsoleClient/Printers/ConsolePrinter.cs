@@ -14,7 +14,9 @@
         }
         public void Print(IPrintable printable)
         {
-            Console.WriteLine(printable.ToPrintable());
+            Console.Clear();
+            PrintStartScreen();
+            Print(printable.ToPrintable());
         }
 
         public void PrintStartScreen()
