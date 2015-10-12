@@ -1,15 +1,17 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient.Matrixes
 {
     using System;
     using System.Collections;
     using System.Linq;
     using System.Text;
 
-    public abstract class BasicMatrix:IPrintable,IEnumerable
+    using GameFifteen.ConsoleClient.Interfaces;
+
+    public abstract class BasicMatrix : IPrintable, IEnumerable
     {
         protected readonly int[] DirectionRow = { -1, 0, 1, 0 };
         protected readonly int[] DirectionColumn = { 0, 1, 0, -1 };
-        
+
         protected int emptyCellRow;
         protected int emptyCellColumn;
 

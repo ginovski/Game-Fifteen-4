@@ -3,6 +3,9 @@
     using System;
     using System.Linq;
 
+    using GameFifteen.ConsoleClient.Interfaces;
+
+
     class ConsolePrinter : IPrinter
     {
         public void Print(string message)

@@ -1,8 +1,9 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient.Matrixes
 {
     using System;
     using System.Collections;
-    using System.Text;
+
+    using GameFifteen.ConsoleClient.Interfaces;
 
     internal class Matrix : BasicMatrix, IPrintable, IEnumerable
     {

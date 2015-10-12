@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient.Interfaces
 {
     public interface IMover
     {

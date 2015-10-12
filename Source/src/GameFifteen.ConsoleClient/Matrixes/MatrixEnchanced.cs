@@ -1,8 +1,8 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient.Matrixes
 {
     using System;
 
-    public class MatrixEnchanced : BasicMatrix
+    internal class MatrixEnchanced : BasicMatrix
     {
         private int turn;
         private Matrix innterMatrix;

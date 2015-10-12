@@ -1,6 +1,9 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient.Engine
 {
     using System;
+
+    using GameFifteen.ConsoleClient.Matrixes;
+    using GameFifteen.ConsoleClient.Interfaces;
 
     public class Engine
     {
@@ -30,7 +33,7 @@
                     NextMove(cellNumber);
                     if (this.matrix.AreNumbersSequential())
                     {
-                        TheEnd();
+                        //TheEnd();
                         break;
                     }
                 }
