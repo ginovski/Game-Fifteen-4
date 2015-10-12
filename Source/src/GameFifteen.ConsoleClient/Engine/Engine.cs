@@ -7,6 +7,7 @@
 
     public class Engine
     {
+        private int turn = 0;
         private IPrinter printer;
         private MatrixEnchanced matrix;
         public Engine()
@@ -77,6 +78,7 @@
             }
 
             this.matrix.MoveCell(direction);
+            this.turn++;
             this.printer.Print(this.matrix);
         }
 
