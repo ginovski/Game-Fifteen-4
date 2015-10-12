@@ -6,6 +6,8 @@
     using System.Text;
     using System.Text.RegularExpressions;
 
+
+
     public class Program
     {
         private static readonly int[] DirectionRow = { -1, 0, 1, 0 };
