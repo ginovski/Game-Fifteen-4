@@ -4,7 +4,7 @@
     using System.Collections;
     using System.Text;
 
-    internal class Matrix : IPrintable, IEnumerable
+    internal class Matrix : IPrintable, IEnumerable, IMatrix
     {
         private readonly int[] DirectionRow = { -1, 0, 1, 0 };
         private readonly int[] DirectionColumn = { 0, 1, 0, -1 };
@@ -155,6 +155,18 @@
                 {
                     yield return this.matrix[row, column];
                 }
+            }
+        }
+
+        public string this[int row, int column]
+        {
+            get
+            {
+                return this.matrix[row, column];
+            }
+            set
+            {
+                this.matrix[row, column] = value;
             }
         }
     }
