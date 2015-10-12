@@ -25,7 +25,7 @@
         /// <summary>
         /// The matrix used in the engine
         /// </summary>
-        private MatrixEnchanced matrix;
+        private MatrixEnhanced matrix;
 
         /// <summary>
         /// The score controller used in the engine
@@ -38,7 +38,7 @@
         public Engine()
         {
             this.printer = new ConsolePrinter();
-            this.matrix = new MatrixEnchanced();
+            this.matrix = new MatrixEnhanced();
             this.scoreController = new ScoreController();
         }
 

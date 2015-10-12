@@ -3,13 +3,25 @@
     using System;
     using System.Collections;
 
+    /// <summary>
+    /// The first implementation of the BasicMatrix class
+    /// </summary>
     internal class Matrix : BasicMatrix, IEnumerable
     {
+        /// <summary>
+        /// Initializes a new instance of the Matrix class
+        /// </summary>
         public Matrix()
             : base()
         {
         }
 
+        /// <summary>
+        /// And indexer for the matrix
+        /// </summary>
+        /// <param name="row">Represents the rows</param>
+        /// <param name="column">Represents the columns</param>
+        /// <returns>An element of the matrix</returns>
         public override string this[int row, int column]
         {
             get
@@ -23,6 +35,9 @@
             }
         }
 
+        /// <summary>
+        /// Initializes the matrix
+        /// </summary>
         public override void InitializeMatrix()
         {
             this.Matrix = new string[Constants.GameBoardRows, Constants.GameBoardColumns];
