@@ -13,14 +13,14 @@
 
         public override void InitializeMatrix()
         {
-            this.matrix = new string[Constants.GameBoardRows, Constants.GameBoardColumns];
+            this.Matrix = new string[Constants.GameBoardRows, Constants.GameBoardColumns];
 
             int cellValue = 1;
             for (int row = 0; row < Constants.GameBoardRows; row++)
             {
                 for (int column = 0; column < Constants.GameBoardColumns; column++)
                 {
-                    this.matrix[row, column] = cellValue.ToString();
+                    this.Matrix[row, column] = cellValue.ToString();
 
                     cellValue++;
                 }
@@ -31,17 +31,17 @@
 
             this.EmptyCells[0] = emptyCellRow;
             this.EmptyCells[1] = emptyCellColumn;
-            this.matrix[emptyCellRow, emptyCellColumn] = Constants.EmptyCellValue;
+            this.Matrix[emptyCellRow, emptyCellColumn] = Constants.EmptyCellValue;
         }
         public override string this[int row, int column]
         {
             get
             {
-                return this.matrix[row, column];
+                return this.Matrix[row, column];
             }
             set
             {
-                this.matrix[row, column] = value;
+                this.Matrix[row, column] = value;
             }
         }
     }

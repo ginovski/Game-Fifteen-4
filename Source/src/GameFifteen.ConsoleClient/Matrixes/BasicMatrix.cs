@@ -3,24 +3,59 @@
     using System;
     using System.Collections;
     using System.Linq;
-    using System.Text;
-
-    using GameFifteen.ConsoleClient.Interfaces;
 
     public abstract class BasicMatrix : IEnumerable
     {
-        protected readonly int[] DirectionRow = { -1, 0, 1, 0 };
-        protected readonly int[] DirectionColumn = { 0, 1, 0, -1 };
-        protected string[,] matrix;
+        private int[] directionRow = { -1, 0, 1, 0 };
+        private int[] directionColumn = { 0, 1, 0, -1 };
+        private string[,] matrix;
+
         public BasicMatrix()
         {
             this.EmptyCells = new int[2];
         }
 
+        public int[] EmptyCells { get; set; }
+
+        protected int[] DirectionRow
+        {
+            get
+            {
+                return this.directionRow;
+            }
+            set
+            {
+                this.directionRow = value;
+            }
+        }
+
+        protected int[] DirectionColumn
+        {
+            get
+            {
+                return this.directionColumn;
+            }
+            set
+            {
+                this.directionColumn = value;
+            }
+        }
+
+        protected string[,] Matrix
+        {
+            get
+            {
+                return this.matrix;
+            }
+            set
+            {
+                this.matrix = value;
+            }
+        }
 
         public bool IsNextCellValid(int direction)
         {
-            var directions = GetDirections(direction);
+            var directions = this.GetDirections(direction);
             int nextCellRow = directions[0];
             int nextCellColumn = directions[1];
 
@@ -32,15 +67,17 @@
 
         public int[] GetDirections(int direction)
         {
-            var emptyCellRow=this.EmptyCells[0];
+            var emptyCellRow = this.EmptyCells[0];
             var emptyCellColumn = this.EmptyCells[1];
-            int nextCellRow = emptyCellRow + DirectionRow[direction];
-            int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
+            int nextCellRow = emptyCellRow + this.directionRow[direction];
+            int nextCellColumn = emptyCellColumn + this.directionColumn[direction];
             return new int[] { nextCellRow, nextCellColumn };
         }
-        public int[] EmptyCells{ get; set; }
+
         public abstract string this[int row, int column] { get; set; }
+
         public abstract void InitializeMatrix();
+
         public IEnumerator GetEnumerator()
         {
             for (int row = 0; row < Constants.GameBoardRows; row++)
