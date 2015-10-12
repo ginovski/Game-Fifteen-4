@@ -106,7 +106,7 @@ namespace GameFifteen.ConsoleClient.Engines
         {
             string moves = this.turn == 1 ? "1 move" : string.Format("{0} moves", this.turn);
 
-            this.printer.PrintEndScreen(true, (int)moves);
+            this.printer.PrintEndScreen(true, int.Parse(moves));
 
             string[] topScores = this.scoreController.GetTopScoresFromFile();
             if (topScores[Constants.TopScoresAmount - 1] != null)
