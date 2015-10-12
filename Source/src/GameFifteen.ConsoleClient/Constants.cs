@@ -9,10 +9,7 @@
 namespace GameFifteen.ConsoleClient
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     /// <summary>
     /// Internal static class that holds all of the constants.

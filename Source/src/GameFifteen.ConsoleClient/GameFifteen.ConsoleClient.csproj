@@ -44,10 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="ConsolePrinter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DefaultCommand.cs" />
     <Compile Include="ExitCommand.cs" />
     <Compile Include="IMover.cs" />
+    <Compile Include="IPrintable.cs" />
+    <Compile Include="IPrinter.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="GameFifteen.cs" />

@@ -15,11 +15,12 @@
         private int emptyCellColumn;
 
         private string[,] matrix;
+
         public Matrix()
         {
-            InitializeMatrix();
             this.turn = 0;
         }
+
         public void InitializeMatrix()
         {
             this.matrix = new string[Constants.GameBoardRows, Constants.GameBoardColumns];
@@ -40,6 +41,7 @@
 
             this.matrix[this.emptyCellRow, this.emptyCellColumn] = Constants.EmptyCellValue;
         }
+
         public void ShuffleMatrix()
         {
             var random = new Random();
@@ -86,7 +88,6 @@
 
             return true;
         }
-
 
         public bool IsNextCellValid(int direction)
         {
