@@ -17,6 +17,10 @@ namespace GameFifteen.ConsoleClient
     internal static class Constants
     {
         /// <summary>
+        /// Constant for MaxPlayersInScoreboard.
+        /// </summary>
+        internal const int MaxPlayersInScoreboard = 5;
+        /// <summary>
         /// Constant for EmptyCellValue.
         /// </summary>
         internal const string EmptyCellValue = " ";
@@ -81,6 +85,10 @@ namespace GameFifteen.ConsoleClient
         /// </summary>
         internal const string EnterNumberToMove = "Enter a number to move: ";
 
+        /// <summary>
+        /// Constant for NoScoresInFile.
+        /// </summary>
+        internal const string NoScoresInFile = "There are no scores to display yet.";
         /// <summary>
         /// Constant for Goodbye.
         /// </summary>
