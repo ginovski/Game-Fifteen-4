@@ -1,12 +1,11 @@
 # Game-Fifteen-4
-Refactoring Documentation for Project “GameFifteen”                                                                                                                         
+Refactoring Documentation for Project 'GameFifteen'                                                                                                                      
 ------------------------------------------------------
 
 1.  Redesigned the project structure: 
 	-   Renamed the project to `Game15`.
 	-   Renamed the main class `Program` to `GameFifteen`.
-	-   Extracted each class in a separate file with a good name: `GameFifteen.cs`, `Player.cs`... more to be extracted!
-	- ...
+	-   Extracted each class in a separate file and corresponding directories with a good name: `GameFifteen.cs`, `Player.cs`, Matrixies directory(containing BasicMatrix.cs, Matrix.cs, MatrixEnhanced.cs) etc. 
 2.  Reformatted the source code using StyleCop:
 
 	-   Removed all unneeded empty lines and added proper spacing. For example:
@@ -63,15 +62,23 @@ Refactoring Documentation for Project “GameFifteen”
 	-   Put **{** and **}** after all conditionals and loops (when missing).
 	-   Character casing: variables and fields made **camelCase**
      - Character casing: types and methods made **PascalCase**.
-	-   Formatted all other elements of the source code according to the best practices introduced in the course “[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)”.
-	-   …
+	-   Formatted all other elements of the source code according to the best practices introduced in the course вЂњ[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)вЂќ.
+	-   вЂ¦
 3.  Renamed variables:
-	-   ...
 4. Renamed methods:
     -   proverka() to IsNextCellValid()
     -   proverka2() to AreNumbersSequential()
 4.  Introduced constants:
 	-   `GameBoardSize = 16`
+	-    'NegativeMove = "Moves cannot be negative."' etc.
 5. Renamed Class DvoikaImeRezultat to Player.
      - Changed struct to public class
      - Rename private field score to movesCount and asign this.
+6. DRY principle- extracted methods where needed
+7. Dependency injection
+8. SOLID- Single responsibility, Open/close, Liskov substitution, Interface segregation, Dependency inversion
+7. Design patterns:
+   - Structural patterns 
+   - Creational patterns 
+   - Behavioral patterns
+8. KISS, YAGNI principles
