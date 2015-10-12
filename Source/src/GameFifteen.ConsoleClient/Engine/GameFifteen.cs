@@ -88,6 +88,7 @@
                     }
                 }
             }
+
             return -1;
         }
 
@@ -380,8 +381,8 @@
         private static void Main()
         {
             //PlayGame();
-            var Engine = new Engine();
-            Engine.Start();
+            var engine = new Engine();
+            engine.Start();
         }
     }
 }
