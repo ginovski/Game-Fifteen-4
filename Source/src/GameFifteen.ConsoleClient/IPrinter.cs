@@ -7,7 +7,7 @@
     {
         void Print(string message);
         void Print(IPrintable printable);
-        void PrintTopScores(Scoreboard scoreboard);
+        void PrintTopScores(string[] scores);
         void PrintStartScreen();
         void PrintEndScreen();
     }

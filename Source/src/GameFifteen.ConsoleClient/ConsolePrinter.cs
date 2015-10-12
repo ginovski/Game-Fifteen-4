@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient
 {
     using System;
     using System.Linq;
@@ -27,28 +25,9 @@ namespace GameFifteen.ConsoleClient
         {
             throw new NotImplementedException();
         }
-        public void PrintTopScores(Scoreboard scoreboard)
+        public void PrintTopScores(string[] scores)
         {
-            var players = scoreboard.GetPlayers();
-
-            if (players.Count == 0)
-            {
-                this.Print(Constants.NoScoresInFile);
-                return;
-            }
-
-            this.Print("Scoreboard");
-
-            var scoreBoardAsString = new StringBuilder();
-
-            for (int i = 0; i < players.Count; i++)
-            {
-                scoreBoardAsString.AppendFormat("{0}. {1} --> {2} moves", i + 1, players[i].Name, players[i].MovesCount);
-                scoreBoardAsString.AppendLine();
-            }
-
-            scoreBoardAsString.AppendLine();
-            this.Print(scoreBoardAsString.ToString());
+            throw new NotImplementedException();
         }
     }
 }
