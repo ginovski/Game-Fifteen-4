@@ -15,14 +15,14 @@
         public void Print(IPrintable printable)
         {
             Console.Clear();
-            PrintStartScreen();
-            Print(printable.ToPrintable());
+            this.PrintStartScreen();
+            this.Print(printable.ToPrintable());
         }
 
         public void PrintStartScreen()
         {
-            Print("Welcome to the game \"15\". Please try to arrange the numbers sequentially. ");
-            Print("Use 'top' to view the top scoreboard, " +
+            this.Print("Welcome to the game \"15\". Please try to arrange the numbers sequentially. ");
+            this.Print("Use 'top' to view the top scoreboard, " +
                               "'restart' to start a new game and 'exit'  to quit the game.");
         }
 
@@ -30,9 +30,23 @@
         {
             throw new NotImplementedException();
         }
-        public void PrintTopScores(string[] scores)
+        public void PrintTopScores(string[] topScores)
         {
-            throw new NotImplementedException();
+            this.Print("Scoreboard:");
+            if (topScores[0] == null)
+            {
+                this.Print("There are no scores to display yet.");
+            }
+            else
+            {
+                foreach (string score in topScores)
+                {
+                    if (score != null)
+                    {
+                        this.Print(score);
+                    }
+                }
+            }
         }
     }
 }
