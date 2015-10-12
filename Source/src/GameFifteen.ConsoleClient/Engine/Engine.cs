@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.ConsoleClient.Engine
+﻿namespace GameFifteen.ConsoleClient.Engines
 {
     using System;
 

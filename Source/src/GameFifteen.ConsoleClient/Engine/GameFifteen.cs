@@ -1,4 +1,4 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿namespace GameFifteen.ConsoleClient.Engines
 {
     using System;
     using System.IO;
@@ -379,7 +379,9 @@
 
         private static void Main()
         {
-            PlayGame();
+            //PlayGame();
+            var Engine = new Engine();
+            Engine.Start();
         }
     }
 }
