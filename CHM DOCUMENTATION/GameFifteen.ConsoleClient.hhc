@@ -1,0 +1,1192 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<!-- Sitemap 1.0 -->
+</HEAD>
+<body style="direction: ltr;">
+<OBJECT type="text/site properties">
+	<param name="Window Styles" value="0x800025">
+</OBJECT>
+<UL>
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameFifteen.ConsoleClient Reference">
+ 		<param name="Local" value="frlrfgamefifteenconsoleclient_referenceCustomTopic.html">
+ 
+		</OBJECT>
+ 	<UL>
+   
+
+    	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameFifteen.ConsoleClient Namespace">
+		<param name="Local" value="frlrfGameFifteenConsoleClient.html">
+		</OBJECT>
+	<UL>
+ 
+ 						 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ConsolePrinter Class">
+		<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ConsolePrinter Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+						
+						
+						
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Print Method">
+				<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassPrintTopic_overloads--.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrintEndScreen Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassPrintEndScreenTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrintStartScreen Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassPrintStartScreenTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrintTopScores Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientConsolePrinterClassPrintTopScoresTopic.html">
+		
+		</OBJECT>
+
+						
+						
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+				 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Player Class">
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Player Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Player ">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassctorTopic.html">
+		
+		</OBJECT>
+
+		
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Properties">
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassTopic_props--.html">
+		</OBJECT>
+			<UL>
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MovesCount Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassMovesCountTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Name Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassNameTopic.html">
+		
+		</OBJECT>
+
+			
+			</UL>
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientPlayerClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+						
+						
+						
+						
+						
+						
+						
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+    	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameFifteen.ConsoleClient.Engines Namespace">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEngines.html">
+		</OBJECT>
+	<UL>
+ 
+ 						 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Engine Class">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesEngineClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Engine Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesEngineClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Engine ">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesEngineClassctorTopic.html">
+		
+		</OBJECT>
+
+		
+		
+
+
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesEngineClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+						
+						
+						
+						
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Start Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesEngineClassStartTopic.html">
+		
+		</OBJECT>
+
+						
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+				 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Program Class">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesProgramClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Program Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesProgramClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesProgramClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+						
+						
+						
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PlayGame Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientEnginesProgramClassPlayGameTopic.html">
+		
+		</OBJECT>
+
+						
+						
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+    	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameFifteen.ConsoleClient.Interfaces Namespace">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfaces.html">
+		</OBJECT>
+	<UL>
+ 
+ 		
+
+		
+
+
+						 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IPrintable Interface">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrintableClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IPrintable Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrintableClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrintableClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ToPrintable Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrintableClassToPrintableTopic.html">
+		
+		</OBJECT>
+
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+				 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IPrinter Interface">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IPrinter Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Print Method">
+				<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassPrintTopic_overloads--.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrintEndScreen Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassPrintEndScreenTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrintStartScreen Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassPrintStartScreenTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrintTopScores Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientInterfacesIPrinterClassPrintTopScoresTopic.html">
+		
+		</OBJECT>
+
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+		
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+    	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameFifteen.ConsoleClient.Matrixes Namespace">
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixes.html">
+		</OBJECT>
+	<UL>
+ 
+ 						 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BasicMatrix Class">
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BasicMatrix Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BasicMatrix ">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassctorTopic.html">
+		
+		</OBJECT>
+
+		
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Properties">
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassTopic_props--.html">
+		</OBJECT>
+			<UL>
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DirectionColumn Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassDirectionColumnTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DirectionRow Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassDirectionRowTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="EmptyCells Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassEmptyCellsTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Item Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassItemTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Matrix Property">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassMatrixTopic.html">
+		
+		</OBJECT>
+
+			
+			</UL>
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetDirections Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassGetDirectionsTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetEnumerator Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassGetEnumeratorTopic.html">
+		
+		</OBJECT>
+
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="InitializeMatrix Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassInitializeMatrixTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IsNextCellValid Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientMatrixesBasicMatrixClassIsNextCellValidTopic.html">
+		
+		</OBJECT>
+
+						
+						
+						
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+    	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameFifteen.ConsoleClient.ScoreControls Namespace">
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControls.html">
+		</OBJECT>
+	<UL>
+ 
+ 						 	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ScoreController Class">
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassTopic.html">
+		</OBJECT>
+	<UL>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ScoreController Members">
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassTopic_members--.html">
+		</OBJECT>
+
+
+
+
+
+
+
+
+
+
+ 
+ 		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+				<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Methods">
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassTopic_methods--.html">
+		</OBJECT>
+			<UL>
+						
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetTopScoresFromFile Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassGetTopScoresFromFileTopic.html">
+		
+		</OBJECT>
+
+						
+						
+						
+						
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UpgradeTopScore Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassUpgradeTopScoreTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UpgradeTopScoreInFile Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassUpgradeTopScoreInFileTopic.html">
+		
+		</OBJECT>
+
+							<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UpgradeTopScorePairs Method">
+		
+		<param name="Local" value="frlrfGameFifteenConsoleClientScoreControlsScoreControllerClassUpgradeTopScorePairsTopic.html">
+		
+		</OBJECT>
+
+			
+			</UL>
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+		
+		
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+		
+
+
+ 	</UL>
+ 
+
+ 
+
+ 
+	</UL>
+ 
+
+
+
+	
+	
+</UL>
+</BODY>
+</HTML>
