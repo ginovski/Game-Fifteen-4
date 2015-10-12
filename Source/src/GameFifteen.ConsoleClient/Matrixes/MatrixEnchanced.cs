@@ -7,13 +7,11 @@
 
     internal class MatrixEnchanced : BasicMatrix, IPrintable
     {
-        private int turn;
         private Matrix innerMatrix;
         public MatrixEnchanced()
             : base()
         {
             this.innerMatrix = new Matrix();
-            this.turn = 0;
         }
 
         public override void InitializeMatrix()
@@ -83,7 +81,6 @@
             this.EmptyCells[0] = nextCellRow;
             this.EmptyCells[1] = nextCellColumn;
 
-            this.turn++;
         }
 
         public override string this[int row, int column]

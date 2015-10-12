@@ -5,8 +5,15 @@
     using System.Linq;
     using System.Text.RegularExpressions;
 
-    class ScoreController
+    /// <summary>
+    /// A controller for the scores in the game
+    /// </summary>
+    public class ScoreController
     {
+        /// <summary>
+        /// Gets all the top scores from a file
+        /// </summary>
+        /// <returns>An array of strings which contains the top scores</returns>
         private string[] GetTopScoresFromFile()
         {
             try
@@ -37,9 +44,13 @@
             }
         }
 
+        /// <summary>
+        /// Updates the top score
+        /// </summary>
+        /// <param name="turn">The number of turns a player has made</param>
         private void UpgradeTopScore(int turn)
         {
-            string[] topScores = GetTopScoresFromFile();
+            string[] topScores = this.GetTopScoresFromFile();
             Console.Write("Please enter your name for the top scoreboard: ");
             string name = Console.ReadLine();
             if (name == string.Empty)
@@ -50,12 +61,16 @@
             topScores[Constants.TopScoresAmount] = string.Format("0. {0} --> {1} move", name, turn);
             Array.Sort(topScores);
 
-            var topScoresPairs = UpgradeTopScorePairs(topScores);
+            var topScoresPairs = this.UpgradeTopScorePairs(topScores);
             var sortedScores = topScoresPairs.OrderBy(x => x.MovesCount).ThenBy(x => x.Name);
 
-            UpgradeTopScoreInFile(sortedScores);
+            this.UpgradeTopScoreInFile(sortedScores);
         }
 
+        /// <summary>
+        /// Upgrades the score in a file
+        /// </summary>
+        /// <param name="sortedScores">An array of players</param>
         private void UpgradeTopScoreInFile(IOrderedEnumerable<Player> sortedScores)
         {
             var topWriter = new StreamWriter(Constants.TopScoresFileName);
@@ -78,6 +93,11 @@
             }
         }
 
+        /// <summary>
+        /// Upgrades the top score pairs
+        /// </summary>
+        /// <param name="topScores">An array of top scores</param>
+        /// <returns>An array of players</returns>
         private Player[] UpgradeTopScorePairs(string[] topScores)
         {
             int startIndex = 0;

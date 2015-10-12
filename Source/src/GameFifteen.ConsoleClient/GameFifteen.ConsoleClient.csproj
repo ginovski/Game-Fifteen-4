@@ -59,7 +59,9 @@
     <Compile Include="Engine\GameFifteen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestartCommand.cs" />
-    <Compile Include="ScoreControls\ScoreController.cs" />
+    <Compile Include="ScoreControls\ScoreController.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
