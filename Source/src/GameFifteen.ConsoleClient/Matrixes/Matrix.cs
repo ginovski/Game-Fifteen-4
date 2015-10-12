@@ -3,12 +3,12 @@
     using System;
     using System.Collections;
 
-    using GameFifteen.ConsoleClient.Interfaces;
-
-    internal class Matrix : BasicMatrix, IPrintable, IEnumerable
+    internal class Matrix : BasicMatrix, IEnumerable
     {
         public Matrix()
+            : base()
         {
+
         }
 
         public override void InitializeMatrix()
@@ -26,12 +26,13 @@
                 }
             }
 
-            this.emptyCellRow = Constants.GameBoardRows - 1;
-            this.emptyCellColumn = Constants.GameBoardColumns - 1;
+            var emptyCellRow = Constants.GameBoardRows - 1;
+            var emptyCellColumn = Constants.GameBoardColumns - 1;
 
-            this.matrix[this.emptyCellRow, this.emptyCellColumn] = Constants.EmptyCellValue;
+            this.EmptyCells[0] = emptyCellRow;
+            this.EmptyCells[1] = emptyCellColumn;
+            this.matrix[emptyCellRow, emptyCellColumn] = Constants.EmptyCellValue;
         }
-
         public override string this[int row, int column]
         {
             get

@@ -7,16 +7,16 @@
 
     using GameFifteen.ConsoleClient.Interfaces;
 
-    public abstract class BasicMatrix : IPrintable, IEnumerable
+    public abstract class BasicMatrix : IEnumerable
     {
         protected readonly int[] DirectionRow = { -1, 0, 1, 0 };
         protected readonly int[] DirectionColumn = { 0, 1, 0, -1 };
-
-        protected int emptyCellRow;
-        protected int emptyCellColumn;
-
         protected string[,] matrix;
-        public abstract void InitializeMatrix();
+        public BasicMatrix()
+        {
+            this.EmptyCells = new int[2];
+        }
+
 
         public bool IsNextCellValid(int direction)
         {
@@ -32,12 +32,15 @@
 
         public int[] GetDirections(int direction)
         {
-            int nextCellRow = this.emptyCellRow + DirectionRow[direction];
-            int nextCellColumn = this.emptyCellColumn + DirectionColumn[direction];
+            var emptyCellRow=this.EmptyCells[0];
+            var emptyCellColumn = this.EmptyCells[1];
+            int nextCellRow = emptyCellRow + DirectionRow[direction];
+            int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
             return new int[] { nextCellRow, nextCellColumn };
         }
-
+        public int[] EmptyCells{ get; set; }
         public abstract string this[int row, int column] { get; set; }
+        public abstract void InitializeMatrix();
         public IEnumerator GetEnumerator()
         {
             for (int row = 0; row < Constants.GameBoardRows; row++)
@@ -47,30 +50,6 @@
                     yield return this.matrix[row, column];
                 }
             }
-        }
-
-        public string ToPrintable()
-        {
-            StringBuilder matrixBuilder = new StringBuilder();
-            var horizontalBorder = new StringBuilder("  ");
-            for (int i = 0; i < Constants.GameBoardColumns; i++)
-            {
-                horizontalBorder.Append("---");
-            }
-            horizontalBorder.Append("- \n");
-            matrixBuilder.Append(horizontalBorder);
-            for (int row = 0; row < Constants.GameBoardRows; row++)
-            {
-                matrixBuilder.Append(" |");
-                for (int column = 0; column < Constants.GameBoardColumns; column++)
-                {
-                    matrixBuilder.Append(String.Format("{0,3}", this.matrix[row, column]));
-                }
-
-                matrixBuilder.Append(" |\n");
-            }
-            matrixBuilder.Append(horizontalBorder);
-            return matrixBuilder.ToString();
         }
     }
 }
