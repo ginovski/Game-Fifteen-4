@@ -14,7 +14,7 @@
         /// Gets all the top scores from a file
         /// </summary>
         /// <returns>An array of strings which contains the top scores</returns>
-        private string[] GetTopScoresFromFile()
+        public string[] GetTopScoresFromFile()
         {
             try
             {
@@ -48,7 +48,7 @@
         /// Updates the top score
         /// </summary>
         /// <param name="turn">The number of turns a player has made</param>
-        private void UpgradeTopScore(int turn)
+        public void UpgradeTopScore(int turn)
         {
             string[] topScores = this.GetTopScoresFromFile();
             Console.Write("Please enter your name for the top scoreboard: ");
@@ -71,7 +71,7 @@
         /// Upgrades the score in a file
         /// </summary>
         /// <param name="sortedScores">An array of players</param>
-        private void UpgradeTopScoreInFile(IOrderedEnumerable<Player> sortedScores)
+        public void UpgradeTopScoreInFile(IOrderedEnumerable<Player> sortedScores)
         {
             var topWriter = new StreamWriter(Constants.TopScoresFileName);
             using (topWriter)
@@ -98,7 +98,7 @@
         /// </summary>
         /// <param name="topScores">An array of top scores</param>
         /// <returns>An array of players</returns>
-        private Player[] UpgradeTopScorePairs(string[] topScores)
+        public Player[] UpgradeTopScorePairs(string[] topScores)
         {
             int startIndex = 0;
             while (topScores[startIndex] == null)
