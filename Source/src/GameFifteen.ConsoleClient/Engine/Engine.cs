@@ -2,14 +2,15 @@
 {
     using System;
 
-    using GameFifteen.ConsoleClient.Matrixes;
     using GameFifteen.ConsoleClient.Interfaces;
+    using GameFifteen.ConsoleClient.Matrixes;
 
     public class Engine
     {
         private int turn = 0;
         private IPrinter printer;
         private MatrixEnchanced matrix;
+
         public Engine()
         {
             this.printer = new ConsolePrinter();
@@ -20,18 +21,18 @@
         {
             this.matrix.InitializeMatrix();
             this.matrix.ShuffleMatrix();
-            printer.PrintStartScreen();
-            printer.Print(this.matrix);
+            this.printer.PrintStartScreen();
+            this.printer.Print(this.matrix);
 
             while (true)
             {
-                printer.Print((Constants.EnterNumberToMove));
+                this.printer.Print(Constants.EnterNumberToMove);
 
                 string consoleInputLine = Console.ReadLine();
                 int cellNumber;
                 if (int.TryParse(consoleInputLine, out cellNumber))
                 {
-                    NextMove(cellNumber);
+                    this.NextMove(cellNumber);
                     if (this.matrix.AreNumbersSequential())
                     {
                         //TheEnd();
@@ -48,20 +49,21 @@
                     switch (consoleInputLine)
                     {
                         case "top":
-                            printer.PrintTopScores(new string[]{"",""});
+                            this.printer.PrintTopScores(new string[] { "", "" });
                             break;
 
                         case "exit":
-                            printer.Print(Constants.Goodbye);
+                            this.printer.Print(Constants.Goodbye);
                             return;
 
                         default:
-                            printer.Print(Constants.IllegalCommand);
+                            this.printer.Print(Constants.IllegalCommand);
                             break;
                     }
                 }
             }
         }
+
         private void NextMove(int cellNumber)
         {
             if (cellNumber <= 0 || cellNumber >= Constants.GameBoardSize)
@@ -70,7 +72,7 @@
                 return;
             }
 
-            int direction = CellNumberToDirection(cellNumber);
+            int direction = this.CellNumberToDirection(cellNumber);
             if (direction == -1)
             {
                 this.printer.Print(Constants.IllegalMove);
@@ -100,6 +102,7 @@
                     }
                 }
             }
+
             return -1;
         }
     }
