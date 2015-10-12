@@ -1,5 +1,5 @@
 # Game-Fifteen-4
-Refactoring Documentation for Project “GameFifteen”                                                                                                                         
+Refactoring Documentation for Project вЂњGameFifteenвЂќ                                                                                                                         
 ------------------------------------------------------
 
 1.  Redesigned the project structure: 
@@ -63,15 +63,20 @@ Refactoring Documentation for Project “GameFifteen”
 	-   Put **{** and **}** after all conditionals and loops (when missing).
 	-   Character casing: variables and fields made **camelCase**
      - Character casing: types and methods made **PascalCase**.
-	-   Formatted all other elements of the source code according to the best practices introduced in the course “[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)”.
-	-   …
+	-   Formatted all other elements of the source code according to the best practices introduced in the course вЂњ[High-Quality Programming Code](http://telerikacademy.com/Courses/Courses/Details/244)вЂќ.
+	-   вЂ¦
 3.  Renamed variables:
-	-   ...
 4. Renamed methods:
     -   proverka() to IsNextCellValid()
     -   proverka2() to AreNumbersSequential()
 4.  Introduced constants:
 	-   `GameBoardSize = 16`
+	-    'MaxPlayersInScoreboard = 5' etc.
 5. Renamed Class DvoikaImeRezultat to Player.
      - Changed struct to public class
      - Rename private field score to movesCount and asign this.
+6. DRY principle- extracted methods where needed
+7. Design patterns:
+   - Structural patterns - facade etc...
+   - Creational patterns - singleton etc...
+   - Behavioral patterns - command etc...
