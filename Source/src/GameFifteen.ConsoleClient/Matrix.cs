@@ -64,7 +64,6 @@
 
         public bool AreNumbersSequential()
         {
-            // TODO: Can be extracted to method
             bool isEmptyCellInPlace = this.emptyCellRow == Constants.GameBoardRows - 1 && this.emptyCellColumn == Constants.GameBoardColumns - 1;
             if (!isEmptyCellInPlace)
             {
@@ -155,6 +154,18 @@
                 {
                     yield return this.matrix[row, column];
                 }
+            }
+        }
+
+        public string this[int row, int column]
+        {
+            get
+            {
+                return this.matrix[row, column];
+            }
+            set
+            {
+                this.matrix[row, column] = value;
             }
         }
     }
