@@ -5,13 +5,13 @@
 
     using GameFifteen.ConsoleClient.Interfaces;
 
-
-    class ConsolePrinter : IPrinter
+    public class ConsolePrinter : IPrinter
     {
         public void Print(string message)
         {
             Console.WriteLine(message);
         }
+
         public void Print(IPrintable printable)
         {
             Console.Clear();
@@ -30,6 +30,7 @@
         {
             throw new NotImplementedException();
         }
+
         public void PrintTopScores(string[] topScores)
         {
             this.Print("Scoreboard:");

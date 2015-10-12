@@ -23,6 +23,7 @@
             {
                 return this.directionRow;
             }
+
             set
             {
                 this.directionRow = value;
@@ -35,6 +36,7 @@
             {
                 return this.directionColumn;
             }
+
             set
             {
                 this.directionColumn = value;
@@ -47,6 +49,7 @@
             {
                 return this.matrix;
             }
+
             set
             {
                 this.matrix = value;
