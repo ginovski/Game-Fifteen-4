@@ -43,20 +43,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Matrixes\BasicMatrix.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ConsolePrinter.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DefaultCommand.cs" />
+    <Compile Include="Engine.cs" />
     <Compile Include="ExitCommand.cs" />
-    <Compile Include="IMover.cs" />
-    <Compile Include="IPrintable.cs" />
-    <Compile Include="IPrinter.cs" />
-    <Compile Include="Matrix.cs" />
+    <Compile Include="Interfaces\IMover.cs" />
+    <Compile Include="Interfaces\IPrintable.cs" />
+    <Compile Include="Interfaces\IPrinter.cs" />
+    <Compile Include="Matrixes\Matrix.cs" />
+    <Compile Include="Matrixes\MatrixEnchanced.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="GameFifteen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestartCommand.cs" />
-    <Compile Include="IPrintable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
