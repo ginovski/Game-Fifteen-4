@@ -44,12 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Matrixes\BasicMatrix.cs" />
-    <Compile Include="Command.cs" />
     <Compile Include="Printers\ConsolePrinter.cs" />
     <Compile Include="Constants\Constants.cs" />
-    <Compile Include="DefaultCommand.cs" />
     <Compile Include="Engine\Engine.cs" />
-    <Compile Include="ExitCommand.cs" />
     <Compile Include="Interfaces\IMover.cs" />
     <Compile Include="Interfaces\IPrintable.cs" />
     <Compile Include="Interfaces\IPrinter.cs" />
@@ -58,7 +55,6 @@
     <Compile Include="Players\Player.cs" />
     <Compile Include="Engine\GameFifteen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestartCommand.cs" />
     <Compile Include="ScoreControls\ScoreController.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>

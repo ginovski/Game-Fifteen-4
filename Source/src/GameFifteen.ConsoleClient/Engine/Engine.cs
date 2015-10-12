@@ -1,6 +1,7 @@
 ﻿namespace GameFifteen.ConsoleClient.Engines
 {
     using System;
+    using System.Text.RegularExpressions;
 
     using GameFifteen.ConsoleClient.Interfaces;
     using GameFifteen.ConsoleClient.Matrixes;
@@ -38,7 +39,7 @@
                     this.NextMove(cellNumber);
                     if (this.matrix.AreNumbersSequential())
                     {
-                        TheEnd();
+                        this.TheEnd();
                         break;
                     }
                 }
@@ -52,7 +53,7 @@
                     switch (consoleInputLine)
                     {
                         case "top":
-                            this.printer.PrintTopScores(new string[] { "", "" });
+                            this.printer.PrintTopScores(this.scoreController.GetTopScoresFromFile());
                             break;
 
                         case "exit":
@@ -69,22 +70,22 @@
 
         private void TheEnd()
         {
-            string moves = this.turn == 1 ? "1 move" : string.Format("{0} moves", turn);
+            string moves = this.turn == 1 ? "1 move" : string.Format("{0} moves", this.turn);
 
             this.printer.Print(string.Format("Congratulations! You won the game in {0}.", moves));
 
-            string[] topScores = scoreController.GetTopScoresFromFile();
+            string[] topScores = this.scoreController.GetTopScoresFromFile();
             if (topScores[Constants.TopScoresAmount - 1] != null)
             {
                 string lowestScore = Regex.Replace(topScores[Constants.TopScoresAmount - 1], Constants.TopScoresPersonPattern, @"$2");
-                if (int.Parse(lowestScore) < turn)
+                if (int.Parse(lowestScore) < this.turn)
                 {
-                    PrintMessage(string.Format("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount));
+                    this.printer.Print(string.Format("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount));
                     return;
                 }
             }
 
-            UpgradeTopScore();
+            this.scoreController.UpgradeTopScore(this.turn);
         }
 
         private void NextMove(int cellNumber)
