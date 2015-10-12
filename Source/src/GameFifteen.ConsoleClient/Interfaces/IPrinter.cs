@@ -13,6 +13,6 @@
 
         void PrintStartScreen();
 
-        void PrintEndScreen();
+        void PrintEndScreen(bool victory, int score);
     }
 }

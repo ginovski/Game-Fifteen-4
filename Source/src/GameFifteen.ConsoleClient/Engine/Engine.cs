@@ -72,7 +72,7 @@
         {
             string moves = this.turn == 1 ? "1 move" : string.Format("{0} moves", this.turn);
 
-            this.printer.Print(string.Format("Congratulations! You won the game in {0}.", moves));
+            this.printer.PrintEndScreen(true, (int)moves);
 
             string[] topScores = this.scoreController.GetTopScoresFromFile();
             if (topScores[Constants.TopScoresAmount - 1] != null)
@@ -80,7 +80,7 @@
                 string lowestScore = Regex.Replace(topScores[Constants.TopScoresAmount - 1], Constants.TopScoresPersonPattern, @"$2");
                 if (int.Parse(lowestScore) < this.turn)
                 {
-                    this.printer.Print(string.Format("You couldn't get in the top {0} scoreboard.", Constants.TopScoresAmount));
+                    this.printer.PrintEndScreen(false, Constants.TopScoresAmount);
                     return;
                 }
             }
