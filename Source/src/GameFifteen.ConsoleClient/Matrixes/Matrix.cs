@@ -8,7 +8,19 @@
         public Matrix()
             : base()
         {
+        }
 
+        public override string this[int row, int column]
+        {
+            get
+            {
+                return this.Matrix[row, column];
+            }
+
+            set
+            {
+                this.Matrix[row, column] = value;
+            }
         }
 
         public override void InitializeMatrix()
@@ -32,17 +44,6 @@
             this.EmptyCells[0] = emptyCellRow;
             this.EmptyCells[1] = emptyCellColumn;
             this.Matrix[emptyCellRow, emptyCellColumn] = Constants.EmptyCellValue;
-        }
-        public override string this[int row, int column]
-        {
-            get
-            {
-                return this.Matrix[row, column];
-            }
-            set
-            {
-                this.Matrix[row, column] = value;
-            }
         }
     }
 }

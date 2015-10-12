@@ -8,10 +8,24 @@
     internal class MatrixEnchanced : BasicMatrix, IPrintable
     {
         private Matrix innerMatrix;
+
         public MatrixEnchanced()
             : base()
         {
             this.innerMatrix = new Matrix();
+        }
+
+        public override string this[int row, int column]
+        {
+            get
+            {
+                return this.innerMatrix[row, column];
+            }
+
+            set
+            {
+                this.innerMatrix[row, column] = value;
+            }
         }
 
         public override void InitializeMatrix()
@@ -19,6 +33,7 @@
             this.innerMatrix.InitializeMatrix();
             this.EmptyCells = this.innerMatrix.EmptyCells;
         }
+
         public void ShuffleMatrix()
         {
             var random = new Random();
@@ -27,15 +42,15 @@
             {
                 var directionLength = this.DirectionRow.Length;
                 int direction = random.Next(directionLength);
-                if (IsNextCellValid(direction))
+                if (this.IsNextCellValid(direction))
                 {
-                    MoveCell(direction);
+                    this.MoveCell(direction);
                 }
             }
 
-            if (AreNumbersSequential())
+            if (this.AreNumbersSequential())
             {
-                ShuffleMatrix();
+                this.ShuffleMatrix();
             }
         }
 
@@ -64,6 +79,7 @@
                     cellValue++;
                 }
             }
+
             return true;
         }
 
@@ -80,20 +96,8 @@
 
             this.EmptyCells[0] = nextCellRow;
             this.EmptyCells[1] = nextCellColumn;
-
         }
 
-        public override string this[int row, int column]
-        {
-            get
-            {
-                return this.innerMatrix[row, column];
-            }
-            set
-            {
-                this.innerMatrix[row, column] = value;
-            }
-        }
         public string ToPrintable()
         {
             StringBuilder matrixBuilder = new StringBuilder();
@@ -102,6 +106,7 @@
             {
                 horizontalBorder.Append("---");
             }
+
             horizontalBorder.Append("- \n");
             matrixBuilder.Append(horizontalBorder);
             for (int row = 0; row < Constants.GameBoardRows; row++)
@@ -109,15 +114,14 @@
                 matrixBuilder.Append(" |");
                 for (int column = 0; column < Constants.GameBoardColumns; column++)
                 {
-                    matrixBuilder.Append(String.Format("{0,3}", this.innerMatrix[row, column]));
+                    matrixBuilder.Append(string.Format("{0,3}", this.innerMatrix[row, column]));
                 }
 
                 matrixBuilder.Append(" |\n");
             }
+
             matrixBuilder.Append(horizontalBorder);
             return matrixBuilder.ToString();
-
-
         }
     }
 }

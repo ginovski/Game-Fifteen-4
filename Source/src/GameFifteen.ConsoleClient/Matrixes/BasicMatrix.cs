@@ -56,6 +56,8 @@
             }
         }
 
+        public abstract string this[int row, int column] { get; set; }
+
         public bool IsNextCellValid(int direction)
         {
             var directions = this.GetDirections(direction);
@@ -76,8 +78,6 @@
             int nextCellColumn = emptyCellColumn + this.directionColumn[direction];
             return new int[] { nextCellRow, nextCellColumn };
         }
-
-        public abstract string this[int row, int column] { get; set; }
 
         public abstract void InitializeMatrix();
 
