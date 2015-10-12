@@ -76,6 +76,8 @@ Refactoring Documentation for Project вЂњGameFifteenвЂќ
      - Changed struct to public class
      - Rename private field score to movesCount and asign this.
 6. DRY principle- extracted methods where needed
+7. Dependency injection
+8. SOLID- Single responsibility, Open/close, Liskov substitution, Interface segregation, Dependency inversion
 7. Design patterns:
    - Structural patterns - facade etc...
    - Creational patterns - singleton etc...
