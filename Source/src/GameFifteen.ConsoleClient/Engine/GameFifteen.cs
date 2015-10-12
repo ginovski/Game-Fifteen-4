@@ -1,4 +1,8 @@
-﻿namespace GameFifteen.ConsoleClient.Engines
+﻿// <copyright file="abc.ascx.cs" company="MyCompany.com">
+//     MyCompany.com. All rights reserved.
+// </copyright>
+// <author>Me</author>
+namespace GameFifteen.ConsoleClient.Engines
 {
     using System;
     using System.IO;

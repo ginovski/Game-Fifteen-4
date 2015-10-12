@@ -1,4 +1,11 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿// <copyright file="ConsolePrinter.cs" company="GameFifteen4Team">
+// Copyright(c) 2015 Team "Game-Fifteen-4"
+// </copyright>
+// <summary>
+// ConsolerPrinter Class
+// </summary>
+// <author>GameFifteen4Team</author>
+namespace GameFifteen.ConsoleClient
 {
     using System;
     using System.Linq;

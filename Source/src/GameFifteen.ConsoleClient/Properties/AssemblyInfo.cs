@@ -1,4 +1,11 @@
-﻿using System.Reflection;
+﻿// <copyright file="AssemblyInfo.cs" company="GameFifteen4Team">
+// Copyright(c) 2015 Team "Game-Fifteen-4"
+// </copyright>
+// <summary>
+// The Assembly
+// </summary>
+// <author>GameFifteen4Team</author>
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 

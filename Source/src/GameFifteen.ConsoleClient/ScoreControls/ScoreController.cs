@@ -1,4 +1,11 @@
-﻿namespace GameFifteen.ConsoleClient.ScoreControls
+﻿// <copyright file="ScoreController.cs" company="GameFifteen4Team">
+// Copyright(c) 2015 Team "Game-Fifteen-4"
+// </copyright>
+// <summary>
+// ScoreController Class
+// </summary>
+// <author>GameFifteen4Team</author>
+namespace GameFifteen.ConsoleClient.ScoreControls
 {
     using System;
     using System.IO;

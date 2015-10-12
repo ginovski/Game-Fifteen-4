@@ -1,4 +1,11 @@
-﻿namespace GameFifteen.ConsoleClient.Engines
+﻿// <copyright file="Engine.cs" company="GameFifteen4Team">
+// Copyright(c) 2015 Team "Game-Fifteen-4"
+// </copyright>
+// <summary>
+// Engine Class
+// </summary>
+// <author>GameFifteen4Team</author>
+namespace GameFifteen.ConsoleClient.Engines
 {
     using System;
     using System.Text.RegularExpressions;

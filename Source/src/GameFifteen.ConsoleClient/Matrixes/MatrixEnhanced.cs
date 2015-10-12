@@ -1,4 +1,11 @@
-﻿namespace GameFifteen.ConsoleClient.Matrixes
+﻿// <copyright file="MatrixEnhanced.cs" company="GameFifteen4Team">
+// Copyright(c) 2015 Team "Game-Fifteen-4"
+// </copyright>
+// <summary>
+// MatrixEnhanced Class
+// </summary>
+// <author>GameFifteen4Team</author>
+namespace GameFifteen.ConsoleClient.Matrixes
 {
     using System;
     using System.Text;

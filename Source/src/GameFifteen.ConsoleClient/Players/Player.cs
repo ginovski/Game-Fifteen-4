@@ -1,4 +1,11 @@
-﻿namespace GameFifteen.ConsoleClient
+﻿// <copyright file="Player.cs" company="GameFifteen4Team">
+// Copyright(c) 2015 Team "Game-Fifteen-4"
+// </copyright>
+// <summary>
+// Player Class
+// </summary>
+// <author>GameFifteen4Team</author>
+namespace GameFifteen.ConsoleClient
 {
     using System;
 
