@@ -1,9 +1,10 @@
 ﻿namespace GameFifteen.ConsoleClient
 {
     using System;
+    using System.Collections;
     using System.Text;
 
-    public class Matrix : IPrintable
+    public class Matrix : IPrintable, IEnumerable
     {
         private readonly int[] DirectionRow = { -1, 0, 1, 0 };
         private readonly int[] DirectionColumn = { 0, 1, 0, -1 };
@@ -86,7 +87,7 @@
             return true;
         }
 
-       
+
         private bool IsNextCellValid(int direction)
         {
             var directions = GetDirections(direction);
@@ -143,6 +144,17 @@
             }
             matrixBuilder.Append(horizontalBorder);
             return matrixBuilder.ToString();
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int row = 0; row < Constants.GameBoardRows; row++)
+            {
+                for (int column = 0; column < Constants.GameBoardColumns; column++)
+                {
+                    yield return this.matrix[row, column];
+                }
+            }
         }
     }
 }
