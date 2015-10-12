@@ -5,16 +5,31 @@
 
     using GameFifteen.ConsoleClient.Interfaces;
 
-    internal class MatrixEnchanced : BasicMatrix, IPrintable
+    /// <summary>
+    /// The proxy Matrix class
+    /// </summary>
+    internal class MatrixEnhanced : BasicMatrix, IPrintable
     {
+        /// <summary>
+        /// The inner matrix field
+        /// </summary>
         private Matrix innerMatrix;
 
-        public MatrixEnchanced()
+        /// <summary>
+        /// Initializes a new instance of the MatrixEnhanced class
+        /// </summary>
+        public MatrixEnhanced()
             : base()
         {
             this.innerMatrix = new Matrix();
         }
 
+        /// <summary>
+        /// An indexer for the MatrixEnhanced c lass
+        /// </summary>
+        /// <param name="row">Represents the rows</param>
+        /// <param name="column">Represents the columns</param>
+        /// <returns>Returns an element of the matrix</returns>
         public override string this[int row, int column]
         {
             get
@@ -28,12 +43,18 @@
             }
         }
 
+        /// <summary>
+        /// Initializes the matrix
+        /// </summary>
         public override void InitializeMatrix()
         {
             this.innerMatrix.InitializeMatrix();
             this.EmptyCells = this.innerMatrix.EmptyCells;
         }
 
+        /// <summary>
+        /// Shuffles the matrix
+        /// </summary>
         public void ShuffleMatrix()
         {
             var random = new Random();
@@ -54,6 +75,10 @@
             }
         }
 
+        /// <summary>
+        /// Checks if the numbers inside the matrix are sequential
+        /// </summary>
+        /// <returns>A boolean value</returns>
         public bool AreNumbersSequential()
         {
             var emptyCellRow = this.EmptyCells[0];
@@ -83,6 +108,10 @@
             return true;
         }
 
+        /// <summary>
+        /// Moves cells to a given direction
+        /// </summary>
+        /// <param name="direction">The direction</param>
         public void MoveCell(int direction)
         {
             var directions = GetDirections(direction);
@@ -98,6 +127,10 @@
             this.EmptyCells[1] = nextCellColumn;
         }
 
+        /// <summary>
+        /// Implements the IPrintable interface
+        /// </summary>
+        /// <returns>A string which is ready to be printed</returns>
         public string ToPrintable()
         {
             StringBuilder matrixBuilder = new StringBuilder();
