@@ -73,25 +73,22 @@
 
         private static int CellNumberToDirection(int cellNumber)
         {
-            int direction = -1;
-            for (int dir = 0; dir < DirectionRow.Length; dir++)
+            for (int direction = 0; direction < DirectionRow.Length; direction++)
             {
-                bool isDirValid = IsNextCellValid(dir);
+                bool isDirValid = IsNextCellValid(direction);
 
                 if (isDirValid)
                 {
-                    int nextCellRow = emptyCellRow + DirectionRow[dir];
-                    int nextCellColumn = emptyCellColumn + DirectionColumn[dir];
+                    int nextCellRow = emptyCellRow + DirectionRow[direction];
+                    int nextCellColumn = emptyCellColumn + DirectionColumn[direction];
 
                     if (matrix[nextCellRow, nextCellColumn] == cellNumber.ToString())
                     {
-                        direction = dir;
-                        break;
+                        return direction;
                     }
                 }
             }
-
-            return direction;
+            return -1;
         }
 
         private static void NextMove(int cellNumber)

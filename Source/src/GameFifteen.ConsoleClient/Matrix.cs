@@ -4,7 +4,7 @@
     using System.Collections;
     using System.Text;
 
-    public class Matrix : IPrintable, IEnumerable
+    internal class Matrix : IPrintable, IEnumerable
     {
         private readonly int[] DirectionRow = { -1, 0, 1, 0 };
         private readonly int[] DirectionColumn = { 0, 1, 0, -1 };
@@ -20,7 +20,7 @@
             InitializeMatrix();
             this.turn = 0;
         }
-        private void InitializeMatrix()
+        public void InitializeMatrix()
         {
             this.matrix = new string[Constants.GameBoardRows, Constants.GameBoardColumns];
 
@@ -40,7 +40,7 @@
 
             this.matrix[this.emptyCellRow, this.emptyCellColumn] = Constants.EmptyCellValue;
         }
-        private void ShuffleMatrix()
+        public void ShuffleMatrix()
         {
             var random = new Random();
             int shuffles = random.Next(Constants.GameBoardSize, Constants.GameBoardSize * 100);
@@ -60,7 +60,7 @@
             }
         }
 
-        private bool AreNumbersSequential()
+        public bool AreNumbersSequential()
         {
             // TODO: Can be extracted to method
             bool isEmptyCellInPlace = this.emptyCellRow == Constants.GameBoardRows - 1 && this.emptyCellColumn == Constants.GameBoardColumns - 1;
@@ -88,7 +88,7 @@
         }
 
 
-        private bool IsNextCellValid(int direction)
+        public bool IsNextCellValid(int direction)
         {
             var directions = GetDirections(direction);
             int nextCellRow = directions[0];
@@ -100,7 +100,7 @@
             return isRowValid && isColumnValid;
         }
 
-        private void MoveCell(int direction)
+        public void MoveCell(int direction)
         {
             var directions = GetDirections(direction);
             int nextCellRow = directions[0];
@@ -115,7 +115,7 @@
             turn++;
         }
 
-        private int[] GetDirections(int direction)
+        public int[] GetDirections(int direction)
         {
             int nextCellRow = this.emptyCellRow + DirectionRow[direction];
             int nextCellColumn = this.emptyCellColumn + DirectionColumn[direction];
